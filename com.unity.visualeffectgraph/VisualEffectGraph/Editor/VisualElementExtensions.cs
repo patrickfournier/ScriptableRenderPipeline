@@ -1,7 +1,12 @@
 using UnityEngine;
 using UnityEditor;
-using UnityEngine.Experimental.UIElements;
 using System.Reflection;
+
+#if UNITY_2019_1_OR_NEWER
+using UnityEngine.UIElements;
+#else
+using UnityEngine.Experimental.UIElements;
+#endif
 
 
 static class VisualElementExtensions

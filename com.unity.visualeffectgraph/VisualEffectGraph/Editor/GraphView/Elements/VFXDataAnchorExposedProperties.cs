@@ -1,6 +1,12 @@
-using UnityEditor.Experimental.UIElements.GraphView;
-using UnityEngine.Experimental.UIElements.StyleSheets;
 using UnityEngine;
+
+#if UNITY_2019_1_OR_NEWER
+using UnityEngine.UIElements.StyleSheets;
+using UnityEditor.Experimental.GraphView;
+#else
+using UnityEngine.Experimental.UIElements.StyleSheets;
+using UnityEditor.Experimental.UIElements.GraphView;
+#endif
 
 namespace UnityEditor.VFX.UI
 {

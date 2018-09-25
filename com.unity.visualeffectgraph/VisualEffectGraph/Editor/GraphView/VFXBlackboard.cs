@@ -1,11 +1,7 @@
 using System;
-using UnityEditor.Experimental.UIElements;
-using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine;
 using UnityEngine.Experimental.VFX;
-using UnityEngine.Experimental.UIElements;
 
-using UnityEngine.Experimental.UIElements.StyleEnums;
 using UnityEditor.VFX;
 using System.Collections.Generic;
 using UnityEditor;
@@ -14,7 +10,19 @@ using System.Text;
 using UnityEditor.Graphs;
 using UnityEditor.SceneManagement;
 
-namespace  UnityEditor.VFX.UI
+#if UNITY_2019_1_OR_NEWER
+using UnityEditor.UIElements;
+using UnityEngine.UIElements;
+using UnityEngine.UIElements.StyleEnums;
+using UnityEditor.Experimental.GraphView;
+#else
+using UnityEditor.Experimental.UIElements;
+using UnityEngine.Experimental.UIElements;
+using UnityEngine.Experimental.UIElements.StyleEnums;
+using UnityEditor.Experimental.UIElements.GraphView;
+#endif
+
+namespace UnityEditor.VFX.UI
 {
     class VFXBlackboardPropertyView : VisualElement, IControlledElement<VFXParameterController>
     {

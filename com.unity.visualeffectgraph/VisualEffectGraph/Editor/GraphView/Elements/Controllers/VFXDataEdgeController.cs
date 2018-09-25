@@ -1,8 +1,14 @@
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+
+#if UNITY_2019_1_OR_NEWER
+using UnityEngine.UIElements;
+using UnityEditor.Experimental.GraphView;
+#else
 using UnityEngine.Experimental.UIElements;
 using UnityEditor.Experimental.UIElements.GraphView;
+#endif
 
 namespace UnityEditor.VFX.UI
 {

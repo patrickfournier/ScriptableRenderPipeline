@@ -1,7 +1,13 @@
 using UnityEngine;
+using UnityEditor.VFX.UIElements;
+
+#if UNITY_2019_1_OR_NEWER
+using UnityEngine.UIElements;
+using UnityEditor.UIElements;
+#else
 using UnityEngine.Experimental.UIElements;
 using UnityEditor.Experimental.UIElements;
-using UnityEditor.VFX.UIElements;
+#endif
 
 namespace UnityEditor.VFX.UI
 {

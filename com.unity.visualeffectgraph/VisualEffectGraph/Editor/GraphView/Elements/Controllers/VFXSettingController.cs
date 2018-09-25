@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
-using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine.Experimental.VFX;
 
 namespace UnityEditor.VFX.UI
