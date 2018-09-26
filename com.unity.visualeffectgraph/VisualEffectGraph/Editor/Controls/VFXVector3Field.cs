@@ -1,9 +1,17 @@
 using UnityEngine;
+
+#if UNITY_2019_1_OR_NEWER
+using UnityEngine.UIElements;
+using UnityEngine.UIElements.StyleEnums;
+using UnityEditor.UIElements;
+using FloatField = UnityEditor.VFX.UIElements.VFXLabeledField<UnityEditor.UIElements.FloatField, float>;
+#else
 using UnityEngine.Experimental.UIElements;
 using UnityEngine.Experimental.UIElements.StyleEnums;
 using UnityEditor.Experimental.UIElements;
-
 using FloatField = UnityEditor.VFX.UIElements.VFXLabeledField<UnityEditor.Experimental.UIElements.FloatField, float>;
+#endif
+
 namespace UnityEditor.VFX.UIElements
 {
     abstract class VFXVectorNField<T> : VFXControl<T>

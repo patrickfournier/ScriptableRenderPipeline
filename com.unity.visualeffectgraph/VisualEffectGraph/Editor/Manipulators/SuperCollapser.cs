@@ -2,11 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine;
+
+#if UNITY_2019_1_OR_NEWER
+using UnityEngine.UIElements;
+using UnityEngine.UIElements.StyleEnums;
+using UnityEngine.UIElements.StyleSheets;
+using UnityEditor.Experimental.GraphView;
+#else
 using UnityEngine.Experimental.UIElements;
 using UnityEngine.Experimental.UIElements.StyleEnums;
 using UnityEngine.Experimental.UIElements.StyleSheets;
+using UnityEditor.Experimental.UIElements.GraphView;
+#endif
 
 namespace UnityEditor.VFX.UI
 {

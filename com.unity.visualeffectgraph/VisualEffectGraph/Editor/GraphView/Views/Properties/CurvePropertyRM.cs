@@ -1,15 +1,22 @@
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
-using UnityEngine.Experimental.UIElements;
-using UnityEngine.Experimental.UIElements.StyleEnums;
-using UnityEditor.Experimental.UIElements;
 using UnityEditor.VFX;
 using UnityEditor.VFX.UIElements;
 using Object = UnityEngine.Object;
 using Type = System.Type;
 
+#if UNITY_2019_1_OR_NEWER
+using UnityEngine.UIElements;
+using UnityEditor.UIElements;
+using UnityEngine.UIElements.StyleEnums;
+using MyCurveField = UnityEditor.VFX.UIElements.VFXLabeledField<UnityEditor.UIElements.CurveField, UnityEngine.AnimationCurve>;
+#else
+using UnityEngine.Experimental.UIElements;
+using UnityEditor.Experimental.UIElements;
+using UnityEngine.Experimental.UIElements.StyleEnums;
 using MyCurveField = UnityEditor.VFX.UIElements.VFXLabeledField<UnityEditor.Experimental.UIElements.CurveField, UnityEngine.AnimationCurve>;
+#endif
 
 namespace UnityEditor.VFX.UI
 {

@@ -1,10 +1,17 @@
-using UnityEditor.Experimental.UIElements.GraphView;
-using UnityEngine.Experimental.UIElements.StyleSheets;
-using UnityEngine.Experimental.UIElements;
 using UnityEngine;
 using UnityEngine.Experimental.VFX;
 using System.Linq;
 using Type = System.Type;
+
+#if UNITY_2019_1_OR_NEWER
+using UnityEngine.UIElements;
+using UnityEngine.UIElements.StyleSheets;
+using UnityEditor.Experimental.GraphView;
+#else
+using UnityEngine.Experimental.UIElements;
+using UnityEngine.Experimental.UIElements.StyleSheets;
+using UnityEditor.Experimental.UIElements.GraphView;
+#endif
 
 namespace UnityEditor.VFX.UI
 {

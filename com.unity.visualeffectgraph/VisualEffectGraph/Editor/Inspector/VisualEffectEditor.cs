@@ -10,10 +10,16 @@ using UnityEngine.Experimental.VFX;
 
 using UnityEditor.VFX;
 using UnityEditor.VFX.UI;
-using UnityEditor.Experimental.UIElements.GraphView;
 using EditMode = UnityEditorInternal.EditMode;
 using UnityObject = UnityEngine.Object;
 using System.Reflection;
+
+#if UNITY_2019_1_OR_NEWER
+using UnityEditor.Experimental.GraphView;
+#else
+using UnityEditor.Experimental.UIElements.GraphView;
+#endif
+
 namespace UnityEditor.VFX
 {
     class FakeObject : ScriptableObject

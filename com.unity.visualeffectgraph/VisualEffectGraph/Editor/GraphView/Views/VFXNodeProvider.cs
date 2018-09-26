@@ -2,13 +2,10 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEditor.Experimental.VFX;
 using UnityEngine.Experimental.VFX;
-using UnityEngine.Experimental.UIElements;
-using UnityEngine.Experimental.UIElements.StyleEnums;
 using UnityEngine.Profiling;
 
 namespace UnityEditor.VFX.UI

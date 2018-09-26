@@ -4,13 +4,18 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEditor.Experimental.VFX;
 using UnityEngine;
 using UnityEngine.Profiling;
 
 using UnityObject = UnityEngine.Object;
 using Branch = UnityEditor.VFX.Operator.Branch;
+
+#if UNITY_2019_1_OR_NEWER
+using UnityEditor.Experimental.GraphView;
+#else
+using UnityEditor.Experimental.UIElements.GraphView;
+#endif
 
 namespace UnityEditor.VFX.UI
 {

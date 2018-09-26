@@ -1,19 +1,26 @@
 #define USE_EXIT_WORKAROUND_FOGBUGZ_1062258
 using System;
 using System.Linq;
-using UnityEditor.Experimental.UIElements;
-using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine;
 using UnityEngine.Experimental.VFX;
 using UnityEditor.Experimental.VFX;
-using UnityEngine.Experimental.UIElements;
 using UnityEditor.VFX;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityObject = UnityEngine.Object;
 using System.IO;
 
-namespace  UnityEditor.VFX.UI
+#if UNITY_2019_1_OR_NEWER
+using UnityEngine.UIElements;
+using UnityEditor.UIElements;
+using UnityEditor.Experimental.GraphView;
+#else
+using UnityEngine.Experimental.UIElements;
+using UnityEditor.Experimental.UIElements;
+using UnityEditor.Experimental.UIElements.GraphView;
+#endif
+
+namespace UnityEditor.VFX.UI
 {
     [Serializable]
     class VFXViewWindow : EditorWindow
@@ -133,8 +140,12 @@ namespace  UnityEditor.VFX.UI
             graphView.StretchToParentSize();
             SetupFramingShortcutHandler(graphView);
 
-            this.GetRootVisualContainer().Add(graphView);
-
+#if UNITY_2019_1_OR_NEWER
+            VisualElement rootVisualElement = this.rootVisualElement;
+#else
+            VisualElement rootVisualElement = this.GetRootVisualContainer();
+#endif
+            rootVisualElement.Add(graphView);
 
             var currentAsset = GetCurrentResource();
             if (currentAsset != null)
@@ -149,7 +160,6 @@ namespace  UnityEditor.VFX.UI
             graphView.RegisterCallback<DetachFromPanelEvent>(OnLeavePanel);
 
 
-            VisualElement rootVisualElement = this.GetRootVisualContainer();
             if (rootVisualElement.panel != null)
             {
                 rootVisualElement.AddManipulator(m_ShortcutHandler);
@@ -212,13 +222,21 @@ namespace  UnityEditor.VFX.UI
 
         void OnEnterPanel(AttachToPanelEvent e)
         {
-            VisualElement rootVisualElement = UIElementsEntryPoint.GetRootVisualContainer(this);
+#if UNITY_2019_1_OR_NEWER
+            VisualElement rootVisualElement = this.rootVisualElement;
+#else
+            VisualElement rootVisualElement = this.GetRootVisualContainer();
+#endif
             rootVisualElement.AddManipulator(m_ShortcutHandler);
         }
 
         void OnLeavePanel(DetachFromPanelEvent e)
         {
-            VisualElement rootVisualElement = UIElementsEntryPoint.GetRootVisualContainer(this);
+#if UNITY_2019_1_OR_NEWER
+            VisualElement rootVisualElement = this.rootVisualElement;
+#else
+            VisualElement rootVisualElement = this.GetRootVisualContainer();
+#endif
             rootVisualElement.RemoveManipulator(m_ShortcutHandler);
         }
 

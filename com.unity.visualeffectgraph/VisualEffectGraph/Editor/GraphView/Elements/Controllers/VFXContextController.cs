@@ -1,5 +1,3 @@
-using UnityEditor.Experimental.UIElements.GraphView;
-using UnityEngine.Experimental.UIElements;
 using UnityEngine;
 using UnityEditor.Experimental.VFX;
 using System.Collections.Generic;
@@ -9,6 +7,14 @@ using System.Collections.ObjectModel;
 using System.Reflection;
 
 using UnityObject = UnityEngine.Object;
+
+#if UNITY_2019_1_OR_NEWER
+using UnityEngine.UIElements;
+using UnityEditor.Experimental.GraphView;
+#else
+using UnityEngine.Experimental.UIElements;
+using UnityEditor.Experimental.UIElements.GraphView;
+#endif
 
 namespace UnityEditor.VFX.UI
 {
