@@ -86,7 +86,11 @@ namespace UnityEditor.VFX.UI
             var op = controller.sourceNode.model as VFXOperatorNumericCascadedUnified;
 
             if (op != null)
+#if UNITY_2019_1_OR_NEWER
+                evt.menu.AppendAction("Remove Slot", OnRemove, e => op.operandCount > 2 ? DropdownMenu.MenuAction.Status.Normal : DropdownMenu.MenuAction.Status.Disabled);
+#else
                 evt.menu.AppendAction("Remove Slot", OnRemove, e => op.operandCount > 2 ? DropdownMenu.MenuAction.StatusFlags.Normal : DropdownMenu.MenuAction.StatusFlags.Disabled);
+#endif
         }
 
         void OnRemove(DropdownMenu.MenuAction e)

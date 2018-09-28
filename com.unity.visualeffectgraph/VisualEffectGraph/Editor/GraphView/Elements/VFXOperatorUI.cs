@@ -141,7 +141,11 @@ namespace UnityEditor.VFX.UI
         {
             if (evt.target == this && controller != null && controller.model is VFXInlineOperator)
             {
+#if UNITY_2019_1_OR_NEWER
+                evt.menu.AppendAction("Convert to Parameter", OnConvertToParameter, e => DropdownMenu.MenuAction.Status.Normal);
+#else
                 evt.menu.AppendAction("Convert to Parameter", OnConvertToParameter, e => DropdownMenu.MenuAction.StatusFlags.Normal);
+#endif
                 evt.menu.AppendSeparator();
             }
         }

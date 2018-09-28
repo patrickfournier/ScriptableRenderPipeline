@@ -429,18 +429,28 @@ namespace UnityEditor.VFX.UI
                 {
                     evt.menu.AppendAction("Theme/" + value.ToString(), OnChangeTheme, e => DropdownMenu.MenuAction.StatusFlags.Normal, value);
                 }*/
+#if UNITY_2019_1_OR_NEWER
+                if (theme == Theme.Black)
+                    evt.menu.AppendAction("Light Theme", OnChangeTheme, e => DropdownMenu.MenuAction.Status.Normal, Theme.Classic);
+                else
+                    evt.menu.AppendAction("Dark Theme", OnChangeTheme, e => DropdownMenu.MenuAction.Status.Normal, Theme.Black);
+#else
                 if (theme == Theme.Black)
                     evt.menu.AppendAction("Light Theme", OnChangeTheme, e => DropdownMenu.MenuAction.StatusFlags.Normal, Theme.Classic);
                 else
                     evt.menu.AppendAction("Dark Theme", OnChangeTheme, e => DropdownMenu.MenuAction.StatusFlags.Normal, Theme.Black);
-
+#endif
                 foreach (TextSize value in System.Enum.GetValues(typeof(TextSize)))
                 {
-                    evt.menu.AppendAction(value.ToString() + " Text Size", OnChangeSize, e => DropdownMenu.MenuAction.StatusFlags.Normal, value);
+                    evt.menu.AppendAction(value.ToString() + " Text Size", OnChangeSize, e => DropdownMenu.MenuAction.Status.Normal, value);
                 }
                 evt.menu.AppendSeparator();
 
+#if UNITY_2019_1_OR_NEWER
+                evt.menu.AppendAction("Fit To Text", OnFitToText, e => DropdownMenu.MenuAction.Status.Normal);
+#else
                 evt.menu.AppendAction("Fit To Text", OnFitToText, e => DropdownMenu.MenuAction.StatusFlags.Normal);
+#endif
                 evt.menu.AppendSeparator();
             }
         }

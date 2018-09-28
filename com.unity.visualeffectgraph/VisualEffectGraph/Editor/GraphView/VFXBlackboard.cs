@@ -330,7 +330,11 @@ namespace UnityEditor.VFX.UI
             {
                 foreach (var parameter in view.graphElements.ToList().OfType<VFXParameterUI>().Where(t => t.controller.parentController == controller))
                 {
+#if UNITY_2019_1_OR_NEWER
+                    if (evt.eventTypeId == MouseEnterEvent.TypeId())
+#else
                     if (evt.GetEventTypeId() == MouseEnterEvent.TypeId())
+#endif
                         parameter.AddToClassList("hovered");
                     else
                         parameter.RemoveFromClassList("hovered");

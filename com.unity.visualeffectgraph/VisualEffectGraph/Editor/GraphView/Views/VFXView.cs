@@ -1485,13 +1485,21 @@ namespace UnityEditor.VFX.UI
             if (evt.target is VFXNodeUI)
             {
                 evt.menu.AppendAction("Group Selection", (e) => { GroupSelection(); },
+#if UNITY_2019_1_OR_NEWER
+                    (e) => { return canGroupSelection ? DropdownMenu.MenuAction.Status.Normal : DropdownMenu.MenuAction.Status.Disabled; });
+#else
                     (e) => { return canGroupSelection ? DropdownMenu.MenuAction.StatusFlags.Normal : DropdownMenu.MenuAction.StatusFlags.Disabled; });
+#endif
                 hasMenu = true;
             }
             if (evt.target is VFXView)
             {
                 evt.menu.AppendAction("New Sticky Note", (e) => { AddStickyNote(mousePosition); },
+#if UNITY_2019_1_OR_NEWER
+                    (e) => { return DropdownMenu.MenuAction.Status.Normal; });
+#else
                     (e) => { return DropdownMenu.MenuAction.StatusFlags.Normal; });
+#endif
                 hasMenu = true;
             }
             if (hasMenu)
@@ -1499,18 +1507,30 @@ namespace UnityEditor.VFX.UI
             if (evt.target is VFXContextUI)
             {
                 evt.menu.AppendAction("Cut", (e) => { CutSelectionCallback(); },
+#if UNITY_2019_1_OR_NEWER
+                    (e) => { return canCutSelection ? DropdownMenu.MenuAction.Status.Normal : DropdownMenu.MenuAction.Status.Disabled; });
+#else
                     (e) => { return canCutSelection ? DropdownMenu.MenuAction.StatusFlags.Normal : DropdownMenu.MenuAction.StatusFlags.Disabled; });
+#endif
                 evt.menu.AppendAction("Copy", (e) => { CopySelectionCallback(); },
+#if UNITY_2019_1_OR_NEWER
+                    (e) => { return canCopySelection ? DropdownMenu.MenuAction.Status.Normal : DropdownMenu.MenuAction.Status.Disabled; });
+#else
                     (e) => { return canCopySelection ? DropdownMenu.MenuAction.StatusFlags.Normal : DropdownMenu.MenuAction.StatusFlags.Disabled; });
+#endif
             }
 
             if (evt.target is VFXGroupNode)
             {
                 VFXGroupNode group = evt.target as VFXGroupNode;
-                evt.menu.InsertAction(0, "Create Node", OnCreateNodeInGroupNode, e => DropdownMenu.MenuAction.StatusFlags.Normal);
+                evt.menu.InsertAction(0, "Create Node", OnCreateNodeInGroupNode, e => DropdownMenu.MenuAction.Status.Normal);
 
                 evt.menu.AppendAction("New Sticky Note", (e) => { AddStickyNote(mousePosition, group); },
+#if UNITY_2019_1_OR_NEWER
+                    (e) => { return DropdownMenu.MenuAction.Status.Normal; });
+#else
                     (e) => { return DropdownMenu.MenuAction.StatusFlags.Normal; });
+#endif
                 hasMenu = true;
                 evt.menu.AppendSeparator();
             }

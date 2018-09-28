@@ -515,7 +515,7 @@ namespace UnityEditor.VFX.UI
                     firstBlock.AddToClassList("first");
                 }
 
-                
+
             }
             Profiler.EndSample();
         }
@@ -751,14 +751,22 @@ namespace UnityEditor.VFX.UI
             {
                 if (m_CanHaveBlocks)
                 {
+#if UNITY_2019_1_OR_NEWER
+                    evt.menu.InsertAction(0, "Create Block", OnCreateBlock, e => DropdownMenu.MenuAction.Status.Normal);
+#else
                     evt.menu.InsertAction(0, "Create Block", OnCreateBlock, e => DropdownMenu.MenuAction.StatusFlags.Normal);
+#endif
                     evt.menu.AppendSeparator();
                 }
             }
 
             if( evt.target is VFXContextUI && controller.model is VFXAbstractParticleOutput )
             {
+#if UNITY_2019_1_OR_NEWER
+                evt.menu.InsertAction(0, "Convert Output", OnConvertContext, e => DropdownMenu.MenuAction.Status.Normal);
+#else
                 evt.menu.InsertAction(0, "Convert Output", OnConvertContext, e => DropdownMenu.MenuAction.StatusFlags.Normal);
+#endif
             }
         }
     }
