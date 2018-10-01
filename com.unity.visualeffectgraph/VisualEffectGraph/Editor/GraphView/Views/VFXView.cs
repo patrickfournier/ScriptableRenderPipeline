@@ -1523,8 +1523,11 @@ namespace UnityEditor.VFX.UI
             if (evt.target is VFXGroupNode)
             {
                 VFXGroupNode group = evt.target as VFXGroupNode;
+#if UNITY_2019_1_OR_NEWER
                 evt.menu.InsertAction(0, "Create Node", OnCreateNodeInGroupNode, e => DropdownMenu.MenuAction.Status.Normal);
-
+#else
+                evt.menu.InsertAction(0, "Create Node", OnCreateNodeInGroupNode, e => DropdownMenu.MenuAction.StatusFlags.Normal);
+#endif
                 evt.menu.AppendAction("New Sticky Note", (e) => { AddStickyNote(mousePosition, group); },
 #if UNITY_2019_1_OR_NEWER
                     (e) => { return DropdownMenu.MenuAction.Status.Normal; });

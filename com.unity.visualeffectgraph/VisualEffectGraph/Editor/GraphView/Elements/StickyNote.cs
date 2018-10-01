@@ -442,7 +442,11 @@ namespace UnityEditor.VFX.UI
 #endif
                 foreach (TextSize value in System.Enum.GetValues(typeof(TextSize)))
                 {
+#if UNITY_2019_1_OR_NEWER
                     evt.menu.AppendAction(value.ToString() + " Text Size", OnChangeSize, e => DropdownMenu.MenuAction.Status.Normal, value);
+#else
+                    evt.menu.AppendAction(value.ToString() + " Text Size", OnChangeSize, e => DropdownMenu.MenuAction.StatusFlags.Normal, value);
+#endif
                 }
                 evt.menu.AppendSeparator();
 
