@@ -294,8 +294,13 @@ namespace UnityEditor.VFX.UI
 
         void BuildContextualMenu(ContextualMenuPopulateEvent evt)
         {
+#if UNITY_2019_1_OR_NEWER
+            evt.menu.AppendAction("Rename", (a) => OpenTextEditor(), DropdownMenuAction.AlwaysEnabled);
+            evt.menu.AppendAction("Delete", (a) => GetFirstAncestorOfType<VFXView>().DeleteElements(new GraphElement[] { this }), DropdownMenuAction.AlwaysEnabled);
+#else
             evt.menu.AppendAction("Rename", (a) => OpenTextEditor(), DropdownMenu.MenuAction.AlwaysEnabled);
             evt.menu.AppendAction("Delete", (a) => GetFirstAncestorOfType<VFXView>().DeleteElements(new GraphElement[] { this }), DropdownMenu.MenuAction.AlwaysEnabled);
+#endif
 
             evt.StopPropagation();
         }

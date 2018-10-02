@@ -142,7 +142,7 @@ namespace UnityEditor.VFX.UI
             if (evt.target == this && controller != null && controller.model is VFXInlineOperator)
             {
 #if UNITY_2019_1_OR_NEWER
-                evt.menu.AppendAction("Convert to Parameter", OnConvertToParameter, e => DropdownMenu.MenuAction.Status.Normal);
+                evt.menu.AppendAction("Convert to Parameter", OnConvertToParameter, e => DropdownMenuAction.Status.Normal);
 #else
                 evt.menu.AppendAction("Convert to Parameter", OnConvertToParameter, e => DropdownMenu.MenuAction.StatusFlags.Normal);
 #endif
@@ -150,7 +150,11 @@ namespace UnityEditor.VFX.UI
             }
         }
 
+#if UNITY_2019_1_OR_NEWER
+        void OnConvertToParameter(DropdownMenuAction evt)
+#else
         void OnConvertToParameter(DropdownMenu.MenuAction evt)
+#endif
         {
             controller.ConvertToParameter();
         }

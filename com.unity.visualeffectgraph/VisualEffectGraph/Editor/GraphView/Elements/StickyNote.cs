@@ -286,7 +286,11 @@ namespace UnityEditor.VFX.UI
                 );
         }
 
+#if UNITY_2019_1_OR_NEWER
+        void OnFitToText(DropdownMenuAction a)
+#else
         void OnFitToText(DropdownMenu.MenuAction a)
+#endif
         {
             FitText(false);
         }
@@ -431,9 +435,9 @@ namespace UnityEditor.VFX.UI
                 }*/
 #if UNITY_2019_1_OR_NEWER
                 if (theme == Theme.Black)
-                    evt.menu.AppendAction("Light Theme", OnChangeTheme, e => DropdownMenu.MenuAction.Status.Normal, Theme.Classic);
+                    evt.menu.AppendAction("Light Theme", OnChangeTheme, e => DropdownMenuAction.Status.Normal, Theme.Classic);
                 else
-                    evt.menu.AppendAction("Dark Theme", OnChangeTheme, e => DropdownMenu.MenuAction.Status.Normal, Theme.Black);
+                    evt.menu.AppendAction("Dark Theme", OnChangeTheme, e => DropdownMenuAction.Status.Normal, Theme.Black);
 #else
                 if (theme == Theme.Black)
                     evt.menu.AppendAction("Light Theme", OnChangeTheme, e => DropdownMenu.MenuAction.StatusFlags.Normal, Theme.Classic);
@@ -443,7 +447,7 @@ namespace UnityEditor.VFX.UI
                 foreach (TextSize value in System.Enum.GetValues(typeof(TextSize)))
                 {
 #if UNITY_2019_1_OR_NEWER
-                    evt.menu.AppendAction(value.ToString() + " Text Size", OnChangeSize, e => DropdownMenu.MenuAction.Status.Normal, value);
+                    evt.menu.AppendAction(value.ToString() + " Text Size", OnChangeSize, e => DropdownMenuAction.Status.Normal, value);
 #else
                     evt.menu.AppendAction(value.ToString() + " Text Size", OnChangeSize, e => DropdownMenu.MenuAction.StatusFlags.Normal, value);
 #endif
@@ -451,7 +455,7 @@ namespace UnityEditor.VFX.UI
                 evt.menu.AppendSeparator();
 
 #if UNITY_2019_1_OR_NEWER
-                evt.menu.AppendAction("Fit To Text", OnFitToText, e => DropdownMenu.MenuAction.Status.Normal);
+                evt.menu.AppendAction("Fit To Text", OnFitToText, e => DropdownMenuAction.Status.Normal);
 #else
                 evt.menu.AppendAction("Fit To Text", OnFitToText, e => DropdownMenu.MenuAction.StatusFlags.Normal);
 #endif
@@ -512,13 +516,21 @@ namespace UnityEditor.VFX.UI
             }
         }
 
+#if UNITY_2019_1_OR_NEWER
+        void OnChangeTheme(DropdownMenuAction action)
+#else
         void OnChangeTheme(DropdownMenu.MenuAction action)
+#endif
         {
             theme = (Theme)action.userData;
             NotifyChange(StickyNodeChangeEvent.Change.theme);
         }
 
+#if UNITY_2019_1_OR_NEWER
+        void OnChangeSize(DropdownMenuAction action)
+#else
         void OnChangeSize(DropdownMenu.MenuAction action)
+#endif
         {
             textSize = (TextSize)action.userData;
             NotifyChange(StickyNodeChangeEvent.Change.textSize);
