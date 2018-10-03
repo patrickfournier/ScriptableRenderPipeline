@@ -189,7 +189,7 @@ namespace UnityEditor.VFX.UI
             m_PlayRateSlider = this.Query<Slider>("play-rate-slider");
             m_PlayRateSlider.lowValue = Mathf.Pow(VisualEffectControl.minSlider, 1 / VisualEffectControl.sliderPower);
             m_PlayRateSlider.highValue = Mathf.Pow(VisualEffectControl.maxSlider, 1 / VisualEffectControl.sliderPower);
-            m_PlayRateSlider.valueChanged += OnEffectSlider;
+            m_PlayRateSlider.OnValueChanged(evt => OnEffectSlider(evt.newValue));
             m_PlayRateField = this.Query<IntegerField>("play-rate-field");
             m_PlayRateField.RegisterCallback<ChangeEvent<int>>(OnPlayRateField);
 

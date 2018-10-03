@@ -246,9 +246,7 @@ namespace UnityEditor.VFX.UIElements
 
         public void SetValueAndNotify(U newValue)
         {
-            #pragma warning disable 0618
-            (m_Control as INotifyValueChanged<U>).SetValueAndNotify(newValue);
-            #pragma warning restore 0618
+            (m_Control as INotifyValueChanged<U>).value = newValue;
         }
 
         public void SetValueWithoutNotify(U newValue)

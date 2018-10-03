@@ -131,9 +131,9 @@ namespace UnityEditor.VFX.UIElements
     {
         public VFXFloatSliderField()
         {
-            m_Slider = new Slider(0, 1, ValueChanged, SliderDirection.Horizontal, (range.y - range.x) * 0.1f);
+            m_Slider = new Slider(0, 1, SliderDirection.Horizontal, (range.y - range.x) * 0.1f);
             m_Slider.AddToClassList("textfield");
-            m_Slider.valueChanged += ValueChanged;
+            m_Slider.OnValueChanged(evt => ValueChanged(evt.newValue));
 
             m_FloatField = new FloatField();
             m_FloatField.RegisterCallback<ChangeEvent<float>>(ValueChanged);
@@ -198,9 +198,9 @@ namespace UnityEditor.VFX.UIElements
     {
         public VFXIntSliderField()
         {
-            m_Slider = new Slider(0, 1, ValueChanged, SliderDirection.Horizontal, 0.1f);
+            m_Slider = new Slider(0, 1, SliderDirection.Horizontal, 0.1f);
             m_Slider.AddToClassList("textfield");
-            m_Slider.valueChanged += ValueChanged;
+            m_Slider.OnValueChanged(evt => ValueChanged(evt.newValue));
 
             var integerField = new IntegerField();
             integerField.RegisterCallback<ChangeEvent<int>>(ValueChanged);
@@ -231,9 +231,9 @@ namespace UnityEditor.VFX.UIElements
     {
         public VFXLongSliderField()
         {
-            m_Slider = new Slider(0, 1, ValueChanged, SliderDirection.Horizontal, 0.1f);
+            m_Slider = new Slider(0, 1, SliderDirection.Horizontal, 0.1f);
             m_Slider.AddToClassList("textfield");
-            m_Slider.valueChanged += ValueChanged;
+            m_Slider.OnValueChanged(evt => ValueChanged(evt.newValue));
 
             var integerField = new LongField();
             integerField.RegisterCallback<ChangeEvent<long>>(ValueChanged);
