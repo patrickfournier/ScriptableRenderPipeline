@@ -362,7 +362,7 @@ namespace UnityEditor.VFX.UI
                 button.clickable.clicked += OnExpand;
             }
 
-            clippingOptions = ClippingOptions.ClipAndCacheContents;
+            clippingOption = ClippingOption.ClipAndCacheContents;
         }
 
         void OnExpand()
@@ -516,7 +516,7 @@ namespace UnityEditor.VFX.UI
             m_DragIndicator.style.positionType = PositionType.Absolute;
             shadow.Add(m_DragIndicator);
 
-            clippingOptions = ClippingOptions.ClipContents;
+            clippingOption = ClippingOption.ClipContents;
             SetDragIndicatorVisible(false);
 
             Resizer resizer = this.Query<Resizer>();

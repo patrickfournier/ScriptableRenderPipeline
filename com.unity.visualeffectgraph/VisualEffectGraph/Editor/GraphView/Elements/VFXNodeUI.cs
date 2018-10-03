@@ -154,7 +154,7 @@ namespace UnityEditor.VFX.UI
         {
             AddStyleSheetPath("VFXNode");
             AddToClassList("VFXNodeUI");
-            clippingOptions = ClippingOptions.ClipContents;
+            clippingOption = ClippingOption.ClipContents;
 
             RegisterCallback<MouseEnterEvent>(OnMouseEnter);
             RegisterCallback<MouseLeaveEvent>(OnMouseLeave);
