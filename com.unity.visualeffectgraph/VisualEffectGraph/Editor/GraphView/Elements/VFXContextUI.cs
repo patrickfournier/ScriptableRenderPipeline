@@ -208,7 +208,11 @@ namespace UnityEditor.VFX.UI
             AddToClassList("VFXContext");
             AddToClassList("selectable");
 
+#if UNITY_2019_1_OR_NEWER
             this.mainContainer.clippingOption = ClippingOption.NoClipping;
+#else
+            this.mainContainer.clippingOptions = ClippingOptions.NoClipping;
+#endif
 
             m_FlowInputConnectorContainer = this.Q("flow-inputs");
 
