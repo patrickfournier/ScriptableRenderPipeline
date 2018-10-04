@@ -337,9 +337,15 @@ namespace UnityEditor.VFX.UI
 
             if (HasPosition())
             {
+#if UNITY_2019_1_OR_NEWER
+                style.position = UnityEngine.UIElements.StyleEnums.Position.Absolute;
+                style.left = controller.position.x;
+                style.top = controller.position.y;
+#else
                 style.positionType = PositionType.Absolute;
                 style.positionLeft = controller.position.x;
                 style.positionTop = controller.position.y;
+#endif
             }
 
             base.expanded = controller.expanded;

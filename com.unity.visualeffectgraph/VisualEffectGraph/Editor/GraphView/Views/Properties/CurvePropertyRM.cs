@@ -30,7 +30,11 @@ namespace UnityEditor.VFX.UI
 
             m_CurveField.style.flexDirection = FlexDirection.Column;
             m_CurveField.style.alignItems = Align.Stretch;
+#if UNITY_2019_1_OR_NEWER
+            m_CurveField.style.flexGrow = 1;
+#else
             m_CurveField.style.flex = new Flex(1, 0);
+#endif
 
             Add(m_CurveField);
         }

@@ -61,11 +61,19 @@ namespace UnityEditor.VFX.UI
 
             m_ConnectorHighlight = new VisualElement();
 
+#if UNITY_2019_1_OR_NEWER
+            m_ConnectorHighlight.style.position = UnityEngine.UIElements.StyleEnums.Position.Absolute;
+            m_ConnectorHighlight.style.top = 0;
+            m_ConnectorHighlight.style.left = 0;
+            m_ConnectorHighlight.style.bottom = 0;
+            m_ConnectorHighlight.style.right = 0;
+#else
             m_ConnectorHighlight.style.positionType = PositionType.Absolute;
             m_ConnectorHighlight.style.positionTop = 0;
             m_ConnectorHighlight.style.positionLeft = 0;
             m_ConnectorHighlight.style.positionBottom = 0;
             m_ConnectorHighlight.style.positionRight = 0;
+#endif
             m_ConnectorHighlight.pickingMode = PickingMode.Ignore;
 
             VisualElement connector = m_ConnectorBox as VisualElement;

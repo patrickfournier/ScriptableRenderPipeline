@@ -504,7 +504,11 @@ namespace UnityEditor.VFX.UI
             m_DragIndicator = new VisualElement();
 
             m_DragIndicator.name = "dragIndicator";
+#if UNITY_2019_1_OR_NEWER
+            m_DragIndicator.style.position = UnityEngine.UIElements.StyleEnums.Position.Absolute;
+#else
             m_DragIndicator.style.positionType = PositionType.Absolute;
+#endif
             shadow.Add(m_DragIndicator);
 
             clippingOptions = ClippingOptions.ClipContents;
@@ -514,8 +518,11 @@ namespace UnityEditor.VFX.UI
 
             shadow.Add(new ResizableElement());
 
+#if UNITY_2019_1_OR_NEWER
+            style.position = UnityEngine.UIElements.StyleEnums.Position.Absolute;
+#else
             style.positionType = PositionType.Absolute;
-
+#endif
             subTitle = "Parameters";
 
             resizer.RemoveFromHierarchy();
@@ -621,8 +628,11 @@ namespace UnityEditor.VFX.UI
                     if (childCount > 0)
                     {
                         VisualElement lastChild = this[childCount - 1];
-
+#if UNITY_2019_1_OR_NEWER
+                        indicatorY = lastChild.ChangeCoordinatesTo(this, new Vector2(0, lastChild.layout.height + lastChild.resolvedStyle.marginBottom)).y;
+#else
                         indicatorY = lastChild.ChangeCoordinatesTo(this, new Vector2(0, lastChild.layout.height + lastChild.style.marginBottom)).y;
+#endif
                     }
                     else
                     {
@@ -632,14 +642,19 @@ namespace UnityEditor.VFX.UI
                 else
                 {
                     VisualElement childAtInsertIndex = this[m_InsertIndex];
-
+#if UNITY_2019_1_OR_NEWER
+                    indicatorY = childAtInsertIndex.ChangeCoordinatesTo(this, new Vector2(0, -childAtInsertIndex.resolvedStyle.marginTop)).y;
+#else
                     indicatorY = childAtInsertIndex.ChangeCoordinatesTo(this, new Vector2(0, -childAtInsertIndex.style.marginTop)).y;
+#endif
                 }
 
                 SetDragIndicatorVisible(true);
-
+#if UNITY_2019_1_OR_NEWER
+                m_DragIndicator.style.top =  indicatorY - m_DragIndicator.resolvedStyle.height * 0.5f;
+#else
                 m_DragIndicator.style.positionTop =  indicatorY - m_DragIndicator.style.height * 0.5f;
-
+#endif
                 DragAndDrop.visualMode = DragAndDropVisualMode.Move;
             }
             else

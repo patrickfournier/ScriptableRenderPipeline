@@ -73,7 +73,11 @@ namespace UnityEditor.VFX.UI
 
         private float spaceButtonWidth
         {
+#if UNITY_2019_1_OR_NEWER
+            get { return m_Button != null ? m_Button.layout.width + m_Button.resolvedStyle.marginLeft +  +m_Button.resolvedStyle.marginRight : 28; }
+#else
             get { return m_Button != null ? m_Button.layout.width + m_Button.style.marginLeft +  +m_Button.style.marginRight : 28; }
+#endif
         }
 
         public override float effectiveLabelWidth

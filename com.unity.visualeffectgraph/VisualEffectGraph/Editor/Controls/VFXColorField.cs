@@ -33,7 +33,11 @@ namespace UnityEditor.VFX.UIElements
 
             m_Container.style.flexDirection = FlexDirection.Column;
             m_Container.style.alignItems = Align.Stretch;
+#if UNITY_2019_1_OR_NEWER
+            m_Container.style.flexGrow = 1;
+#else
             m_Container.style.flex = new Flex(1);
+#endif
             m_Container.AddToClassList("colorcontainer");
 
             m_ColorDisplay = new VisualElement();
@@ -72,19 +76,35 @@ namespace UnityEditor.VFX.UIElements
             };
 
             m_HDRLabel.style.unityTextAlign = TextAnchor.MiddleCenter;
+            m_IndeterminateLabel.style.unityTextAlign = TextAnchor.MiddleLeft;
+
+            
+#if UNITY_2019_1_OR_NEWER
+            m_HDRLabel.style.position = UnityEngine.UIElements.StyleEnums.Position.Absolute;
+            m_HDRLabel.style.top = 0;
+            m_HDRLabel.style.bottom = 0;
+            m_HDRLabel.style.left = 0;
+            m_HDRLabel.style.right = 0;
+
+            m_IndeterminateLabel.style.position = UnityEngine.UIElements.StyleEnums.Position.Absolute;
+            m_IndeterminateLabel.style.top = 0;
+            m_IndeterminateLabel.style.bottom = 0;
+            m_IndeterminateLabel.style.left = 0;
+            m_IndeterminateLabel.style.right = 0;
+#else
             m_HDRLabel.style.positionType = PositionType.Absolute;
             m_HDRLabel.style.positionTop = 0;
             m_HDRLabel.style.positionBottom = 0;
             m_HDRLabel.style.positionLeft = 0;
             m_HDRLabel.style.positionRight = 0;
 
-            m_IndeterminateLabel.style.unityTextAlign = TextAnchor.MiddleLeft;
             m_IndeterminateLabel.style.positionType = PositionType.Absolute;
             m_IndeterminateLabel.style.positionTop = 0;
             m_IndeterminateLabel.style.positionBottom = 0;
             m_IndeterminateLabel.style.positionLeft = 0;
             m_IndeterminateLabel.style.positionRight = 0;
-
+#endif
+            
             m_HDRLabel.AddToClassList("hdr");
 
             m_Container.Add(m_ColorDisplay);
@@ -215,8 +235,13 @@ namespace UnityEditor.VFX.UIElements
             if (indeterminate)
             {
                 m_ColorDisplay.style.backgroundColor = VFXControlConstants.indeterminateTextColor;
+#if UNITY_2019_1_OR_NEWER
+                m_AlphaDisplay.style.flexGrow = 1;
+                m_NotAlphaDisplay.style.flexGrow = 0;
+#else
                 m_AlphaDisplay.style.flex = new Flex(1);
                 m_NotAlphaDisplay.style.flex = new Flex(0, 0);
+#endif
                 m_HDRLabel.RemoveFromHierarchy();
                 if (m_IndeterminateLabel.parent == null)
                     m_Container.Add(m_IndeterminateLabel);
@@ -226,9 +251,13 @@ namespace UnityEditor.VFX.UIElements
                 m_IndeterminateLabel.RemoveFromHierarchy();
                 Color displayedColor = (new Color(m_Value.r, m_Value.g, m_Value.b, 1)).gamma;
                 m_ColorDisplay.style.backgroundColor = displayedColor;
+#if UNITY_2019_1_OR_NEWER
+                m_AlphaDisplay.style.flexGrow = m_Value.a;
+                m_NotAlphaDisplay.style.flexGrow = 1 - m_Value.a;
+#else
                 m_AlphaDisplay.style.flex = new Flex(m_Value.a, 0);
                 m_NotAlphaDisplay.style.flex = new Flex(1 - m_Value.a, 0);
-
+#endif
                 bool hdr = m_Value.r > 1 || m_Value.g > 1 || m_Value.b > 1;
                 if ((m_HDRLabel.parent != null) != hdr)
                 {

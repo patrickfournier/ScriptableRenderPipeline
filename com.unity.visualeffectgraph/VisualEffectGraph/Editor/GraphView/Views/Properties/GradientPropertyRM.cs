@@ -30,7 +30,11 @@ namespace UnityEditor.VFX.UI
 
             m_GradientField.style.flexDirection = FlexDirection.Column;
             m_GradientField.style.alignItems = Align.Stretch;
+#if UNITY_2019_1_OR_NEWER
+            m_GradientField.style.flexGrow = 1;
+#else
             m_GradientField.style.flex = new Flex(1, 0);
+#endif
 
             Add(m_GradientField);
         }

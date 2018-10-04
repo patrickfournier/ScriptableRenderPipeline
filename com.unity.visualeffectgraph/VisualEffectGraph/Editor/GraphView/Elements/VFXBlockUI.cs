@@ -60,13 +60,21 @@ namespace UnityEditor.VFX.UI
             //this.AddManipulator(new TrickleClickSelector());
 
             Profiler.EndSample();
+#if UNITY_2019_1_OR_NEWER
+            style.position = UnityEngine.UIElements.StyleEnums.Position.Relative;
+#else
             style.positionType = PositionType.Relative;
+#endif
         }
 
         // On purpose -- until we support Drag&Drop I suppose
         public override void SetPosition(Rect newPos)
         {
+#if UNITY_2019_1_OR_NEWER
+            style.position = UnityEngine.UIElements.StyleEnums.Position.Relative;
+#else
             style.positionType = PositionType.Relative;
+#endif
         }
 
         void OnToggleEnable(ChangeEvent<bool> e)
