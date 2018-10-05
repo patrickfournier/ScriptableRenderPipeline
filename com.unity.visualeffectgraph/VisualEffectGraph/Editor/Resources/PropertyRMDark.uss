@@ -1,7 +1,7 @@
-.propertyrm #indeterminate
-{
+.propertyrm #indeterminate{
     background-image: resource("Builtin Skins/DarkSkin/Images/TextField.png");
 }
+
 .propertyrm Toggle.indeterminate {
     background-image: resource("Builtin Skins/DarkSkin/Images/toggle mixed.png");
 }

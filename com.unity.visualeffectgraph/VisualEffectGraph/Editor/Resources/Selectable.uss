@@ -1,13 +1,17 @@
-.selectable > #selection-border
-{
+.selectable > #selection-border {
     position-type: absolute;
     position-left:0;
     position-right:0;
     position-top:0;
     position-bottom:0;
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
 }
 
-.selectable:hover  > #selection-border{
+.selectable:hover  > #selection-border {
     border-color: rgba(68,192,255, 0.5);
     border-top-width:1;
     border-left-width:1;
@@ -19,8 +23,7 @@
     border-bottom: 1;
 }
 
-.selectable:selected  > #selection-border
-{
+.selectable:selected  > #selection-border {
     border-color: #44C0FF;
     border-left-width:1;
     border-right-width:1;
@@ -28,8 +31,7 @@
     border-bottom-width:1;
 }
 
-.selectable:selected:hover  > #selection-border
-{
+.selectable:selected:hover  > #selection-border {
     border-left-width:2;
     border-right-width:2;
     border-top-width:2;

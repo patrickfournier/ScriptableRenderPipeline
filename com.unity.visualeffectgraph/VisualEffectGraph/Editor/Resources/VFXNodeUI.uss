@@ -1,5 +1,4 @@
-#title
-{
+#title {
     flex-direction:row;
 }
 
@@ -18,6 +17,11 @@
     position-right:0;
     position-top:0;
     position-bottom:0;
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
 }
 
 :hover > #selection-border {

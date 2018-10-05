@@ -1,84 +1,76 @@
-ResizableElement
-{
+ResizableElement {
     position-type:absolute;
     position-top: 0;
     position-bottom: 0;
     position-right: 0;
     position-left: 0;
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
     flex-direction: row;
     align-items: stretch;
 }
 
-ResizableElement #right
-{
+ResizableElement #right {
     width:8;
     flex-direction: column;
     align-items: stretch;
 }
 
-ResizableElement #left
-{
+ResizableElement #left {
     width:8;
     flex-direction: column;
     align-items: stretch;
 }
-ResizableElement #middle
-{
+
+ResizableElement #middle {
     flex:1 0 auto;
     flex-direction: column;
     align-items: stretch;
 }
 
-
-ResizableElement #left #top-left-resize
-{
+ResizableElement #left #top-left-resize {
     height:8;
     cursor: resize-up-left;
 }
 
-ResizableElement #left #left-resize
-{
+ResizableElement #left #left-resize {
     flex:1 0 auto;
     cursor: resize-horizontal;
 }
 
-ResizableElement #left #bottom-left-resize
-{
+ResizableElement #left #bottom-left-resize {
     height:8;
     cursor: resize-up-right;
 }
 
-ResizableElement #middle #top-resize
-{
+ResizableElement #middle #top-resize {
     height:8;
     cursor: resize-vertical;
 }
 
-ResizableElement #middle #middle-center
-{
+ResizableElement #middle #middle-center {
     flex:1 0 auto;
 }
 
-ResizableElement #middle #bottom-resize
-{
+ResizableElement #middle #bottom-resize {
     height:8;
     cursor: resize-vertical;
 }
 
-ResizableElement #right #top-right-resize
-{
+ResizableElement #right #top-right-resize {
     height:8;
     cursor: resize-up-right;
 }
 
-ResizableElement #right #right-resize
-{
+ResizableElement #right #right-resize {
     flex:1 0 auto;
     cursor: resize-horizontal;
 }
 
-ResizableElement #right #bottom-right-resize
-{
+ResizableElement #right #bottom-right-resize {
     height:8;
     cursor: resize-up-left;
 }

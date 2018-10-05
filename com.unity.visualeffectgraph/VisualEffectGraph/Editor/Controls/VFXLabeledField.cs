@@ -170,24 +170,27 @@ namespace UnityEditor.VFX.UIElements
             m_Label.AddStyleSheetPath("VFXLabel");
             if (typeof(IValueField<U>).IsAssignableFrom(typeof(T)))
             {
-                m_Label.AddToClassList("cursor-slide-arrow");
                 if (typeof(U) == typeof(float))
                 {
+                    m_Label.AddToClassList("cursor-slide-arrow");
                     var dragger = new VFXFieldMouseDragger<float>((IValueField<float>)m_Control, ()=> onValueDragFinished(this));
                     dragger.SetDragZone(m_Label);
                 }
                 else if (typeof(U) == typeof(double))
                 {
+                    m_Label.AddToClassList("cursor-slide-arrow");
                     var dragger = new VFXFieldMouseDragger<double>((IValueField<double>)m_Control, () => onValueDragFinished(this));
                     dragger.SetDragZone(m_Label);
                 }
                 else if (typeof(U) == typeof(long))
                 {
+                    m_Label.AddToClassList("cursor-slide-arrow");
                     var dragger = new VFXFieldMouseDragger<long>((IValueField<long>)m_Control, () => onValueDragFinished(this));
                     dragger.SetDragZone(m_Label);
                 }
                 else if (typeof(U) == typeof(int))
                 {
+                    m_Label.AddToClassList("cursor-slide-arrow");
                     var dragger = new VFXFieldMouseDragger<int>((IValueField<int>)m_Control, () => onValueDragFinished(this));
                     dragger.SetDragZone(m_Label);
                 }

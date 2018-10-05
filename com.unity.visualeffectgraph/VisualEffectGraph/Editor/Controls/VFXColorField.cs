@@ -104,7 +104,8 @@ namespace UnityEditor.VFX.UIElements
             m_IndeterminateLabel.style.positionLeft = 0;
             m_IndeterminateLabel.style.positionRight = 0;
 #endif
-            
+            m_IndeterminateLabel.style.unityTextAlign = TextAnchor.MiddleLeft;
+
             m_HDRLabel.AddToClassList("hdr");
 
             m_Container.Add(m_ColorDisplay);

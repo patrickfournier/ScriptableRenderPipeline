@@ -1,13 +1,11 @@
-.ReorderableList > #Toolbar > #Add > #icon
-{
+.ReorderableList > #Toolbar > #Add > #icon {
     background-image: resource("VFX/dark_StolenToolbarPlus");
 }
-.ReorderableList #Toolbar > #Remove > #icon
-{
+
+.ReorderableList #Toolbar > #Remove > #icon {
     background-image: resource("VFX/dark_StolenToolbarMinus");
 }
 
-#DraggingHandle #icon
-{
+#DraggingHandle #icon {
     background-image: resource("Builtin Skins/DarkSkin/Images/WindowBottomResize.png");
 }
