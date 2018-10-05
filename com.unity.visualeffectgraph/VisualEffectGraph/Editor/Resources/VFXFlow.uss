@@ -1,13 +1,16 @@
-VFXFlowAnchor #connector #hole #cap{
+VFXFlowAnchor #connector #hole #cap
+{
     width:0;
     height:0;
 }
 
-VFXFlowAnchor #connector.portHighlight #hole #cap{
+VFXFlowAnchor #connector.portHighlight #hole #cap
+{
     background-color: rgb(220, 220, 220);
 }
 
-VFXFlowAnchor.port.EdgeConnector {
+VFXFlowAnchor.port.EdgeConnector 
+{
     padding-left:0;
     padding-right:0;
     margin-left:12;
@@ -18,21 +21,21 @@ VFXFlowAnchor.port.EdgeConnector {
     flex-direction:column-reverse;
 }
 
-VFXFlowAnchor.port.EdgeConnector.output {
+VFXFlowAnchor.port.EdgeConnector.output 
+{
     flex-direction:column;
 }
 
-VFXFlowAnchor.port.EdgeConnector #connector {
+VFXFlowAnchor.port.EdgeConnector #connector 
+{
     width:12;
     height:12;
     margin-left:2;
     margin-right:2;
 }
 
-VFXFlowAnchor.port.EdgeConnector #type {
-    position-type:absolute;
-    position-top:1;
-    position-left:58;
+VFXFlowAnchor.port.EdgeConnector #type 
+{
     position:absolute;
     top:1;
     left:58;
@@ -41,7 +44,8 @@ VFXFlowAnchor.port.EdgeConnector #type {
     margin-right:0;
 }
 
-VFXFlowAnchor.port.EdgeConnector #connector #cap {
+VFXFlowAnchor.port.EdgeConnector #connector #cap 
+{
     width:8;
     height:8;
 }

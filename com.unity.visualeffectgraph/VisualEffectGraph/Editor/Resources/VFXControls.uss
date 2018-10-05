@@ -16,19 +16,21 @@
     cursor: text;
 }*/
 
-VFXColorField {
+VFXColorField 
+{
     flex:1 0 auto;
     flex-direction:row;
     margin-left:0;
     margin-right:0;
 }
 
-VFXColorField #indeterminate {
-    text-color:#000;
+VFXColorField #indeterminate 
+{
     color:#000;
 }
 
-CurveField {
+CurveField 
+{
     height:16;
     background-color:rgb(86, 86, 86);
     border-left-width:1;
@@ -38,50 +40,57 @@ CurveField {
     border-color:#000;
 }
 
-.sliderField {
+.sliderField 
+{
     flex-direction:row;
 }
 
-.sliderField Slider {
+.sliderField Slider 
+{
     flex:1 0 auto;
 }
 
-.sliderField #Field {
+.sliderField #Field 
+{
     width:40;
     flex:0 0 auto;
 }
 
-.sliderField #indeterminate {
+.sliderField #indeterminate 
+{
     width:40;
     flex:0 0 auto;
 }
 
-.PopupButton {
-    text-alignment:middle-left;
+.PopupButton 
+{
+    -unity-text-align:middle-left;
     height: 16;
-    slice-left: 6;
-    slice-top: 4;
-    slice-right: 14;
-    slice-bottom: 4;
-    text-color: #B4B4B4;
+    -unity-slice-left: 6;
+    -unity-slice-top: 4;
+    -unity-slice-right: 14;
+    -unity-slice-bottom: 4;
     color: #B4B4B4;
     padding-right:14;
     padding-left:4;
 }
 
-VFXEnumField .PopupButton:hover {
-    text-color: #FFF;
+VFXEnumField .PopupButton:hover 
+{
     color: #FFF;
 }
 
-VFXStringFieldPushButton {
+VFXStringFieldPushButton 
+{
     height:16;
 }
 
-VFXStringFieldPushButton Button {
+VFXStringFieldPushButton Button 
+{
     height:16;
 }
 
-Button.MiniDropDown {
-    slice-right: 12;
+Button.MiniDropDown 
+{
+    -unity-slice-right: 12;
 }

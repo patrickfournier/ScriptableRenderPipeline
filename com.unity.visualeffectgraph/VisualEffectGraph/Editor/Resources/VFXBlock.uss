@@ -1,4 +1,5 @@
-VFXBlockUI.VFXNodeUI.node {
+VFXBlockUI.VFXNodeUI.node 
+{
     flex:1 0 auto;
     align-items:stretch;
     border-radius:0;
@@ -11,51 +12,61 @@ VFXBlockUI.VFXNodeUI.node {
     margin-right:0;
 }
 
-VFXBlockUI.VFXNodeUI.node.first {
+VFXBlockUI.VFXNodeUI.node.first 
+{
     padding-top:0;
 }
 
-VFXBlockUI.VFXNodeUI.node > #selection-border{
+VFXBlockUI.VFXNodeUI.node > #selection-border
+{
     margin-left:0;
     margin-right:0;
     margin-top:0;
     margin-bottom:0;
 }
 
-VFXBlockUI.VFXNodeUI.node #contents > #top > #input{
+VFXBlockUI.VFXNodeUI.node #contents > #top > #input
+{
     padding-bottom:8;
     flex: 1 1 auto;
 }
 
-VFXContextUI VFXBlockUI.node #node-border #title{
+VFXContextUI VFXBlockUI.node #node-border #title
+{
     flex-direction:row;
     align-items:center;
     justify-content:flex-start;
 }
 
-VFXContextUI VFXBlockUI.node #node-border #title.disabled{
+VFXContextUI VFXBlockUI.node #node-border #title.disabled
+{
     opacity:0.5;
 }
 
-VFXContextUI VFXBlockUI.node #node-border #title #title-label{
+VFXContextUI VFXBlockUI.node #node-border #title #title-label
+{
     margin-left:4;
     flex:1 0 auto;
 }
 
-VFXContextUI VFXBlockUI.node #node-border #title.disabled #title-label{
+VFXContextUI VFXBlockUI.node #node-border #title.disabled #title-label
+{
     opacity:0.5;
 }
 
-VFXBlockUI.node #title Toggle{
+VFXBlockUI.node #title Toggle
+{
     -margin-right:0;
 }
 
-VFXBlockUI.node #title #collapse-button{
+VFXBlockUI.node #title #collapse-button
+{
     width:20;
     padding-right:4;
 }
 
-VFXBlockUI.node{
+VFXBlockUI.node
+{
     margin-left:0;
     margin-right:0;
     margin-top:0;
@@ -63,7 +74,8 @@ VFXBlockUI.node{
     flex-direction:row;
 }
 
-VFXBlockUI.node > #node-border{
+VFXBlockUI.node > #node-border
+{
     flex:1 1 auto;
     margin-left:0;
     margin-right:0;
