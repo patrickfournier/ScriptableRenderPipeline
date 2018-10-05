@@ -205,7 +205,11 @@ namespace UnityEditor.VFX.UI
             AddLayer(1);
             AddLayer(2);
 
+#if UNITY_2019_1_OR_NEWER
+            focusable = true;
+#else
             focusIndex = 0;
+#endif
 
             m_Toolbar = new VisualElement();
             m_Toolbar.AddToClassList("toolbar");

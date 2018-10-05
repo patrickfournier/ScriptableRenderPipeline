@@ -498,8 +498,11 @@ namespace UnityEditor.VFX.UI
             RegisterCallback<DragLeaveEvent>(OnDragLeaveEvent);
             RegisterCallback<KeyDownEvent>(OnKeyDown);
 
+#if UNITY_2019_1_OR_NEWER
+            focusable = true;
+#else
             focusIndex = 0;
-
+#endif
 
             m_DragIndicator = new VisualElement();
 
