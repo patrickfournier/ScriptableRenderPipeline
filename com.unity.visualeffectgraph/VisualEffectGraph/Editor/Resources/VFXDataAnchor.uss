@@ -16,7 +16,7 @@
     height:-1;
     margin-bottom:0;
     margin-right:4;
-    visible:true;
+    Visible:true;
 }
 
 .VFXDataAnchor #lineSpacer {
@@ -68,7 +68,7 @@
     max-height:0;
     min-height:0;
     height:0;
-    visible:false;
+    Visible:false;
 }
 
 .VFXDataAnchor.hidden #connector {
