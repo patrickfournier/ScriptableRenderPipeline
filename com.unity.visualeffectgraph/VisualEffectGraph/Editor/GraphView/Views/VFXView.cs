@@ -1469,7 +1469,11 @@ namespace UnityEditor.VFX.UI
             controller.AddStickyNote(position, group != null ? group.controller : null);
         }
 
+#if UNITY_2019_1_OR_NEWER
+        void OnCreateNodeInGroupNode(DropdownMenuAction e)
+#else
         void OnCreateNodeInGroupNode(DropdownMenu.MenuAction e)
+#endif
         {
             Debug.Log("CreateMenuPosition" + e.eventInfo.mousePosition);
             //The targeted groupnode will be determined by a PickAll later
@@ -1485,13 +1489,21 @@ namespace UnityEditor.VFX.UI
             if (evt.target is VFXNodeUI)
             {
                 evt.menu.AppendAction("Group Selection", (e) => { GroupSelection(); },
+#if UNITY_2019_1_OR_NEWER
+                    (e) => { return canGroupSelection ? DropdownMenuAction.Status.Normal : DropdownMenuAction.Status.Disabled; });
+#else
                     (e) => { return canGroupSelection ? DropdownMenu.MenuAction.StatusFlags.Normal : DropdownMenu.MenuAction.StatusFlags.Disabled; });
+#endif
                 hasMenu = true;
             }
             if (evt.target is VFXView)
             {
                 evt.menu.AppendAction("New Sticky Note", (e) => { AddStickyNote(mousePosition); },
+#if UNITY_2019_1_OR_NEWER
+                    (e) => { return DropdownMenuAction.Status.Normal; });
+#else
                     (e) => { return DropdownMenu.MenuAction.StatusFlags.Normal; });
+#endif
                 hasMenu = true;
             }
             if (hasMenu)
@@ -1499,18 +1511,33 @@ namespace UnityEditor.VFX.UI
             if (evt.target is VFXContextUI)
             {
                 evt.menu.AppendAction("Cut", (e) => { CutSelectionCallback(); },
+#if UNITY_2019_1_OR_NEWER
+                    (e) => { return canCutSelection ? DropdownMenuAction.Status.Normal : DropdownMenuAction.Status.Disabled; });
+#else
                     (e) => { return canCutSelection ? DropdownMenu.MenuAction.StatusFlags.Normal : DropdownMenu.MenuAction.StatusFlags.Disabled; });
+#endif
                 evt.menu.AppendAction("Copy", (e) => { CopySelectionCallback(); },
+#if UNITY_2019_1_OR_NEWER
+                    (e) => { return canCopySelection ? DropdownMenuAction.Status.Normal : DropdownMenuAction.Status.Disabled; });
+#else
                     (e) => { return canCopySelection ? DropdownMenu.MenuAction.StatusFlags.Normal : DropdownMenu.MenuAction.StatusFlags.Disabled; });
+#endif
             }
 
             if (evt.target is VFXGroupNode)
             {
                 VFXGroupNode group = evt.target as VFXGroupNode;
+#if UNITY_2019_1_OR_NEWER
+                evt.menu.InsertAction(0, "Create Node", OnCreateNodeInGroupNode, e => DropdownMenuAction.Status.Normal);
+#else
                 evt.menu.InsertAction(0, "Create Node", OnCreateNodeInGroupNode, e => DropdownMenu.MenuAction.StatusFlags.Normal);
-
+#endif
                 evt.menu.AppendAction("New Sticky Note", (e) => { AddStickyNote(mousePosition, group); },
+#if UNITY_2019_1_OR_NEWER
+                    (e) => { return DropdownMenuAction.Status.Normal; });
+#else
                     (e) => { return DropdownMenu.MenuAction.StatusFlags.Normal; });
+#endif
                 hasMenu = true;
                 evt.menu.AppendSeparator();
             }

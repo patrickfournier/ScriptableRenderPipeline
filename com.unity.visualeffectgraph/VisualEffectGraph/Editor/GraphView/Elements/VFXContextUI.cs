@@ -208,7 +208,11 @@ namespace UnityEditor.VFX.UI
             AddToClassList("VFXContext");
             AddToClassList("selectable");
 
+#if UNITY_2019_1_OR_NEWER
+            this.mainContainer.clippingOption = ClippingOption.NoClipping;
+#else
             this.mainContainer.clippingOptions = ClippingOptions.NoClipping;
+#endif
 
             m_FlowInputConnectorContainer = this.Q("flow-inputs");
 
@@ -515,7 +519,7 @@ namespace UnityEditor.VFX.UI
                     firstBlock.AddToClassList("first");
                 }
 
-                
+
             }
             Profiler.EndSample();
         }
@@ -580,7 +584,11 @@ namespace UnityEditor.VFX.UI
             }
         }
 
+#if UNITY_2019_1_OR_NEWER
+        public void OnCreateBlock(DropdownMenuAction evt)
+#else
         public void OnCreateBlock(DropdownMenu.MenuAction evt)
+#endif
         {
             Vector2 referencePosition = evt.eventInfo.mousePosition;
 
@@ -662,7 +670,11 @@ namespace UnityEditor.VFX.UI
             return (desc.model as VFXContext).contextType == VFXContextType.kOutput;
         }
 
+#if UNITY_2019_1_OR_NEWER
+        void OnConvertContext(DropdownMenuAction action)
+#else
         void OnConvertContext(DropdownMenu.MenuAction action)
+#endif
         {
             VFXView view = this.GetFirstAncestorOfType<VFXView>();
             VFXFilterWindow.Show(VFXViewWindow.currentWindow, action.eventInfo.mousePosition, view.ViewToScreenPosition(action.eventInfo.mousePosition), new VFXContextOnlyVFXNodeProvider(view.controller, ConvertContext, ProviderFilter));
@@ -751,14 +763,22 @@ namespace UnityEditor.VFX.UI
             {
                 if (m_CanHaveBlocks)
                 {
+#if UNITY_2019_1_OR_NEWER
+                    evt.menu.InsertAction(0, "Create Block", OnCreateBlock, e => DropdownMenuAction.Status.Normal);
+#else
                     evt.menu.InsertAction(0, "Create Block", OnCreateBlock, e => DropdownMenu.MenuAction.StatusFlags.Normal);
+#endif
                     evt.menu.AppendSeparator();
                 }
             }
 
             if( evt.target is VFXContextUI && controller.model is VFXAbstractParticleOutput )
             {
+#if UNITY_2019_1_OR_NEWER
+                evt.menu.InsertAction(0, "Convert Output", OnConvertContext, e => DropdownMenuAction.Status.Normal);
+#else
                 evt.menu.InsertAction(0, "Convert Output", OnConvertContext, e => DropdownMenu.MenuAction.StatusFlags.Normal);
+#endif
             }
         }
     }
