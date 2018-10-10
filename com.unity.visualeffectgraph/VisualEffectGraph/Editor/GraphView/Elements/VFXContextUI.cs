@@ -152,7 +152,7 @@ namespace UnityEditor.VFX.UI
             HashSet<VisualElement> newInAnchors = new HashSet<VisualElement>();
             foreach (var inanchorcontroller in controller.flowInputAnchors)
             {
-                var existing = m_FlowInputConnectorContainer.Select(t => t as VFXFlowAnchor).FirstOrDefault(t => t.controller == inanchorcontroller);
+                var existing = m_FlowInputConnectorContainer.Children().Select(t => t as VFXFlowAnchor).FirstOrDefault(t => t.controller == inanchorcontroller);
                 if (existing == null)
                 {
                     var anchor = VFXFlowAnchor.Create(inanchorcontroller);
@@ -165,7 +165,7 @@ namespace UnityEditor.VFX.UI
                 }
             }
 
-            foreach (var nonLongerExistingAnchor in m_FlowInputConnectorContainer.Where(t => !newInAnchors.Contains(t)).ToList()) // ToList to make a copy because the enumerable will change when we delete
+            foreach (var nonLongerExistingAnchor in m_FlowInputConnectorContainer.Children().Where(t => !newInAnchors.Contains(t)).ToList()) // ToList to make a copy because the enumerable will change when we delete
             {
                 m_FlowInputConnectorContainer.Remove(nonLongerExistingAnchor);
             }
@@ -176,7 +176,7 @@ namespace UnityEditor.VFX.UI
 
             foreach (var outanchorcontroller in controller.flowOutputAnchors)
             {
-                var existing = m_FlowOutputConnectorContainer.Select(t => t as VFXFlowAnchor).FirstOrDefault(t => t.controller == outanchorcontroller);
+                var existing = m_FlowOutputConnectorContainer.Children().Select(t => t as VFXFlowAnchor).FirstOrDefault(t => t.controller == outanchorcontroller);
                 if (existing == null)
                 {
                     var anchor = VFXFlowAnchor.Create(outanchorcontroller);
@@ -189,7 +189,7 @@ namespace UnityEditor.VFX.UI
                 }
             }
 
-            foreach (var nonLongerExistingAnchor in m_FlowOutputConnectorContainer.Where(t => !newOutAnchors.Contains(t)).ToList()) // ToList to make a copy because the enumerable will change when we delete
+            foreach (var nonLongerExistingAnchor in m_FlowOutputConnectorContainer.Children().Where(t => !newOutAnchors.Contains(t)).ToList()) // ToList to make a copy because the enumerable will change when we delete
             {
                 m_FlowOutputConnectorContainer.Remove(nonLongerExistingAnchor);
             }
@@ -620,7 +620,7 @@ namespace UnityEditor.VFX.UI
 
         public IEnumerable<VFXBlockUI> GetAllBlocks()
         {
-            foreach (VFXBlockUI block in m_BlockContainer.OfType<VFXBlockUI>())
+            foreach (VFXBlockUI block in m_BlockContainer.Children().OfType<VFXBlockUI>())
             {
                 yield return block;
             }
@@ -634,12 +634,12 @@ namespace UnityEditor.VFX.UI
         public IEnumerable<VFXFlowAnchor> GetFlowAnchors(bool input, bool output)
         {
             if (input)
-                foreach (VFXFlowAnchor anchor in m_FlowInputConnectorContainer)
+                foreach (VFXFlowAnchor anchor in m_FlowInputConnectorContainer.Children())
                 {
                     yield return anchor;
                 }
             if (output)
-                foreach (VFXFlowAnchor anchor in m_FlowOutputConnectorContainer)
+                foreach (VFXFlowAnchor anchor in m_FlowOutputConnectorContainer.Children())
                 {
                     yield return anchor;
                 }

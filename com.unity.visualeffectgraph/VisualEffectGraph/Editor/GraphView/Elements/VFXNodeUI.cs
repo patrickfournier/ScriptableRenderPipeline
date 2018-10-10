@@ -397,7 +397,7 @@ namespace UnityEditor.VFX.UI
         {
             if (input)
             {
-                foreach (var child in inputContainer)
+                foreach (var child in inputContainer.Children())
                 {
                     if (child is VFXDataAnchor)
                         yield return child as VFXDataAnchor;
@@ -405,7 +405,7 @@ namespace UnityEditor.VFX.UI
             }
             if (output)
             {
-                foreach (var child in outputContainer)
+                foreach (var child in outputContainer.Children())
                 {
                     if (child is VFXDataAnchor)
                         yield return child as VFXDataAnchor;
