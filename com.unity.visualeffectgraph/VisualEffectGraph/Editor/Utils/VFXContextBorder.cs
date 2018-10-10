@@ -19,7 +19,7 @@ namespace UnityEditor.VFX.UI
     {}
 
     [InitializeOnLoad]
-    public class VFXContextBorder : VisualElement, IDisposable
+    public class VFXContextBorder : ImmediateModeElement, IDisposable
     {
         Material m_Mat;
 
@@ -27,6 +27,7 @@ namespace UnityEditor.VFX.UI
 
         public VFXContextBorder()
         {
+            ImmediateRepaint = Repaint;
             RecreateResources();
         }
 
@@ -115,7 +116,7 @@ namespace UnityEditor.VFX.UI
             styles.ApplyCustomProperty("end-color", ref m_EndColor);
         }
 
-        protected override void DoRepaint(IStylePainter sp)
+        void Repaint()
         {
             RecreateResources();
             VFXView view = GetFirstAncestorOfType<VFXView>();
