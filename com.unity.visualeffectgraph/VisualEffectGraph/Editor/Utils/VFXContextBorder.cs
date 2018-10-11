@@ -27,7 +27,6 @@ namespace UnityEditor.VFX.UI
 
         public VFXContextBorder()
         {
-            ImmediateRepaint = Repaint;
             RecreateResources();
         }
 
@@ -116,7 +115,7 @@ namespace UnityEditor.VFX.UI
             styles.ApplyCustomProperty("end-color", ref m_EndColor);
         }
 
-        void Repaint()
+        protected override void ImmediateRepaint()
         {
             RecreateResources();
             VFXView view = GetFirstAncestorOfType<VFXView>();
