@@ -44,18 +44,15 @@ CurveField
 {
     flex-direction:row;
 }
-
 .sliderField Slider 
 {
     flex:1 0 auto;
 }
-
 .sliderField #Field 
 {
     width:40;
     flex:0 0 auto;
 }
-
 .sliderField #indeterminate 
 {
     width:40;
@@ -74,6 +71,7 @@ CurveField
     padding-right:14;
     padding-left:4;
 }
+
 
 VFXEnumField .PopupButton:hover 
 {

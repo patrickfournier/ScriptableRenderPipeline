@@ -8,10 +8,11 @@
     margin-bottom:7;
 }
 
-#vfx-properties .propertyrm 
+ #vfx-properties .propertyrm
 {
     flex:0 0 auto;
 }
+
 
 VFXBlackboardRow.hovered #pill #selection-border 
 {
@@ -27,13 +28,14 @@ VFXBlackboardRow.hovered #pill #selection-border
     bottom:1;
 }
 
-.blackboard > #dragIndicator 
-{
+
+.blackboard > #dragIndicator {
     background-color: #44C0FF;
     min-height: 4;
     left:0;
     right:0;
 }
+
 
 VFXBlackboardCategory #name-field 
 {
@@ -44,8 +46,7 @@ VFXBlackboardCategory #name-field
     bottom:0;
 }
 
-#expandButton 
-{
+#expandButton {
     align-self: center;
     background-image: none;
     border-left: 0;
@@ -62,15 +63,13 @@ VFXBlackboardCategory #name-field
     padding-bottom: 0;
 }
 
-#expandButton > #buttonImage 
-{
+#expandButton > #buttonImage {
     image : resource("GraphView/Nodes/NodeChevronRight.png");
     width: 12;
     height: 12;
 }
 
-VFXBlackboardCategory.expanded #expandButton > #buttonImage 
-{
+VFXBlackboardCategory.expanded #expandButton > #buttonImage {
     image : resource("GraphView/Nodes/NodeChevronDown.png");
 }
 
@@ -87,27 +86,22 @@ VFXBlackboardCategory.expanded  > .mainContainer > #rowsContainer
 VFXBlackboardCategory > .mainContainer > #sectionHeader 
 {
     padding-left:4;
-}
-
-VFXBlackboardCategory > .mainContainer > #rowsContainer 
+}VFXBlackboardCategory > .mainContainer > #rowsContainer
 {
     padding-left:8;
 }
 
-#expandButton:hover > #buttonImage 
-{
+#expandButton:hover > #buttonImage {
     background-color: #212121;
     border-radius: 1;
 }
 
-#divider 
-{
+#divider {
     background-color: rgba(60,60,60,0.8);
     border-color: rgba(60,60,60,0.8);
 }
 
-#divider.horizontal 
-{
+#divider.horizontal {
     height:0.01;
     border-bottom-width: 1;
 }

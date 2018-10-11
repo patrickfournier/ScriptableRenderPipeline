@@ -1,29 +1,24 @@
-#divider 
-{
+#divider {
     background-color: rgba(35,35,35,0.8);
     border-color: rgba(35,35,35,0.8);
 }
 
-#divider.horizontal 
-{
+#divider.horizontal {
     height:0.01;
     border-bottom-width: 1;
 }
 
-#divider.horizontal.hidden 
-{
+#divider.horizontal.hidden {
     height:0;
     border-bottom-width: 0;
 }
 
-#divider.vertical 
-{
+#divider.vertical {
     width:0.01;
     border-right-width: 1;
 }
 
-#divider.vertical.hidden 
-{
+#divider.vertical.hidden {
     width:0;
     border-right-width: 0;
 }
@@ -38,6 +33,7 @@
     flex:1 0 auto;
 }
 
+
 .VFXNodeUI #contents 
 {
     background-color: rgba(63,63,63,0.8);
@@ -47,6 +43,7 @@
 {
     background-color: rgba(0,0,0,0.0);
 }
+
 
 .VFXNodeUI #settings 
 {
@@ -75,14 +72,11 @@
     max-height:0;
     height:0;
 }
-
-.node.collapsed > #node-border > #title > #collapse-button > #icon 
-{
+.node.collapsed > #node-border > #title > #collapse-button > #icon {
     background-image: resource("GraphView/Nodes/NodeChevronLeft.png");
 }
 
-.node.expanded > #node-border > #title > #collapse-button > #icon 
-{
+.node.expanded > #node-border > #title > #collapse-button > #icon {
     background-image : resource("GraphView/Nodes/NodeChevronDown.png");
 }
 
@@ -117,9 +111,7 @@
     height:0;
     border-bottom-width: 0;
 }
-
-#collapse-button:hover:enabled > #icon 
-{
+#collapse-button:hover:enabled > #icon {
     background-color:#DDD;
     visibility:visible;
 }

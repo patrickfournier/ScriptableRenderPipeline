@@ -22,13 +22,13 @@ ResizableElement #left
     flex-direction: column;
     align-items: stretch;
 }
-
 ResizableElement #middle 
 {
     flex:1 0 auto;
     flex-direction: column;
     align-items: stretch;
 }
+
 
 ResizableElement #left #top-left-resize 
 {

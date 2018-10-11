@@ -49,7 +49,6 @@ VFXParameterUI.node:hover > #selection-border
     border-top-width:1;
     border-bottom-width:1;
 }
-
 VFXParameterUI.node.superCollapsed > #node-border 
 {
     border-color:rgba(0,0,0,0);
@@ -106,16 +105,15 @@ VFXParameterUI.node.superCollapsed > #node-border > #contents .VFXDataAnchor.Out
 {
     width:0;
 }
-
 VFXParameterUI.node.superCollapsed > #node-border > #contents .VFXDataAnchor.Output.first #icon 
 {
     width:0;
 }
-
 VFXParameterUI.node.superCollapsed > #node-border > #contents .VFXDataAnchor.Output.first #connector 
 {
     margin-right:10;
 }
+
 
 VFXParameterUI.node > #node-border > #contents > #top 
 {
@@ -141,18 +139,15 @@ VFXParameterUI.node.exposed > #node-border > #title > #pill > #exposed-icon
     height:6;
 }
 
-.node.superCollapsed #super-collapse-button > #icon 
-{
+.node.superCollapsed #super-collapse-button > #icon {
     background-image: resource("GraphView/Nodes/NodeChevronLeft.png");
 }
 
-.node #super-collapse-button > #icon 
-{
+.node #super-collapse-button > #icon {
     background-image : resource("GraphView/Nodes/NodeChevronDown.png");
 }
 
-#super-collapse-button 
-{
+#super-collapse-button {
     width:20;
     margin-right:18;
     flex-direction:column;
@@ -160,8 +155,7 @@ VFXParameterUI.node.exposed > #node-border > #title > #pill > #exposed-icon
     padding-left:4;
 }
 
-#super-collapse-button >#icon 
-{
+#super-collapse-button >#icon {
     background-size: 2;
     width:12;
     height:12;

@@ -50,7 +50,6 @@
 {
     border-bottom-left-radius:4;
 }
-
 .ReorderableList > #Toolbar > #Remove 
 {
     border-bottom-right-radius:4;

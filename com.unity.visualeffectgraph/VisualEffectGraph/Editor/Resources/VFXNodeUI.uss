@@ -3,8 +3,7 @@
     flex-direction:row;
 }
 
-#selection-border 
-{
+#selection-border {
     border-left-width:0;
     border-top-width:0;
     border-right-width:0;
@@ -21,8 +20,7 @@
     bottom:0;
 }
 
-:hover > #selection-border 
-{
+:hover > #selection-border {
     border-color: rgba(68,192,255, 0.5);
     border-top-width:1;
     border-left-width:1;
@@ -34,8 +32,7 @@
     border-bottom: 1;
 }
 
-:selected > #selection-border 
-{
+:selected > #selection-border {
     border-color: #44C0FF;
     border-left-width:1;
     border-top-width:1;
@@ -43,8 +40,7 @@
     border-bottom-width:1;
 }
 
-:selected:hover > #selection-border 
-{
+:selected:hover > #selection-border {
     border-color: #44C0FF;
     border-top-width:2;
     border-left-width:2;

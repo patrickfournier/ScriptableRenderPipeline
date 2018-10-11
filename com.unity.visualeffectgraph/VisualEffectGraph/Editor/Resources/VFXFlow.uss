@@ -1,11 +1,11 @@
-VFXFlowAnchor #connector #hole #cap
-{
+
+
+VFXFlowAnchor #connector #hole #cap{
     width:0;
     height:0;
 }
 
-VFXFlowAnchor #connector.portHighlight #hole #cap
-{
+VFXFlowAnchor #connector.portHighlight #hole #cap{
     background-color: rgb(220, 220, 220);
 }
 
@@ -26,6 +26,7 @@ VFXFlowAnchor.port.EdgeConnector.output
     flex-direction:column;
 }
 
+
 VFXFlowAnchor.port.EdgeConnector #connector 
 {
     width:12;
@@ -44,10 +45,13 @@ VFXFlowAnchor.port.EdgeConnector #type
     margin-right:0;
 }
 
+
 VFXFlowAnchor.port.EdgeConnector #connector #cap 
 {
     width:8;
     height:8;
 }
 
-VFXFlowAnchor.connected #connector {}
+VFXFlowAnchor.connected #connector
+{
+}

@@ -1,5 +1,7 @@
-.VFXDataAnchor > #connector.portHighlight #hole #cap
-{
+
+
+
+.VFXDataAnchor > #connector.portHighlight #hole #cap{
     background-color: rgb(220, 220, 220);
     border-color: rgb(220, 220, 220);
 }
@@ -23,17 +25,18 @@
 {
     flex:1 0 auto;
 }
-
 .VFXDataAnchor #line 
 {
     align-self:stretch;
 }
+
 
 .VFXDataAnchor.port #type 
 {
     margin-left:0;
     margin-right:0;
 }
+
 
 .VFXDataAnchor.port #connector 
 {
@@ -48,7 +51,6 @@
     top:0;
     bottom:0;
 }
-
 .VFXDataAnchor #connector #hole #cap 
 {
     position:absolute;
@@ -59,6 +61,7 @@
     width:-1;
     height:-1;
 }
+
 
 .VFXDataAnchor.hidden 
 {
@@ -78,9 +81,8 @@
     background-color:rgba(0,0,0,0);
 }
 
-.node #right > #output 
-{
-    right:0;
+.node #right > #output {
+    position-right:0;
 }
 
 .VFXDataAnchor.Output 
@@ -96,7 +98,6 @@ VFXDataAnchor.Output #type
     -unity-text-align:middle-right;
     flex:1 0 auto;
 }
-
 .VFXDataAnchor .propertyrm 
 {
     flex:1 1 auto;
@@ -126,7 +127,6 @@ VFXDataAnchor.Output #type
     width:6;
     height:6;
 }
-
 .VFXOutputDataAnchor #type 
 {
     color:#c4c4c4;
@@ -138,6 +138,7 @@ VFXDataAnchor.Output #type
 {
     border-color:#787878;
 }
+
 
 *:disabled 
 {

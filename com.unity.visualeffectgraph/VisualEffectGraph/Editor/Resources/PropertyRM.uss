@@ -19,7 +19,6 @@
     margin-left:4;
     margin-right:8;
 }
-
 .propertyrm Button
 {
     margin-top:1;
@@ -46,12 +45,10 @@
 {
     background-image:resource("vfx/spacecamera");
 }
-
 .spaceLocal
 {
     background-image:resource("vfx/spacelocal");
 }
-
 .spaceWorld
 {
     background-image:resource("vfx/spaceworld");
@@ -62,7 +59,8 @@
     margin-bottom:3;
 }
 
-.propertyrm .fieldContainer > * {
+.propertyrm .fieldContainer > *
+{
     flex:1 1 auto;
 }
 
@@ -92,6 +90,7 @@
     -align-items: center;
     flex-direction:row;
     flex:1 1 0;
+
     margin-left:0;
     margin-right:0;
     margin-top:0;

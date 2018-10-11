@@ -13,8 +13,7 @@ VFXView
     background-color: rgb(210, 152, 0);
 }
 
-.toolbar 
-{
+.toolbar {
     background-image: resource("Builtin Skins/DarkSkin/Images/Toolbar.png");
     -unity-slice-top:2;
     -unity-slice-bottom:2;

@@ -45,6 +45,7 @@
     color:#584308;
 }
 
+
 /* Themes*/
 
 .theme-black * 
@@ -57,11 +58,11 @@
     border-color:#AB924B;
     border-radius:8;
 }
-
 .sticky-note.theme-black, .theme-black TextField 
 {
     background-color: #362905;
 }
+
 
 * > #node-border 
 {
@@ -79,6 +80,7 @@
     position:absolute;
 }
 
+
 * #title, * #title-field 
 {
     font-size:20;
@@ -86,7 +88,8 @@
     white-space:normal;
 }
 
-* #contents {
+* #contents
+{
     margin-top:0;
     margin-bottom:0;
     padding-top:0;
@@ -154,14 +157,13 @@
     margin-bottom:1;
     padding-left:0;
     padding-right:0;
-    border-color: rgba(0, 0, 0, 0.5);
+    -border-color: rgba(0, 0, 0, 0.5);
 }
 
 .size-medium #title, .size-medium #title-field 
 {
     font-size:40;
 }
-
 .size-medium #contents, .size-medium #contents * 
 {
     font-size:24;
@@ -171,7 +173,6 @@
 {
     font-size:60;
 }
-
 .size-large #contents, .size-large #contents * 
 {
     font-size:36;
@@ -210,40 +211,42 @@
 
 /*
 
-.sticky-note.theme-orange, .theme-orange TextField {
+.sticky-note.theme-orange, .theme-orange TextField
+{
     background-color:#FCD76E;
 }
 
-.sticky-note.theme-orange * {
+.sticky-note.theme-orange *
+{
     text-color:#000000;
     color: #000000;
 }
 
-.sticky-note.theme-orange #node-border {
+.sticky-note.theme-orange #node-border
+{
     border-color:none;
 }
 
-.sticky-note.theme-red * {
-    text-color:#FF8B8B;
-    color: #FF8B8B;
+.sticky-note.theme-red *
+{
+    color:#FF8B8B;
 }
-
-.sticky-note.theme-green * {
-    text-color:#6BE6B0;
-    color: #6BE6B0;
+.sticky-note.theme-green *
+{
+    color:#6BE6B0;
 }
-
-.sticky-note.theme-blue * {
+.sticky-note.theme-blue *
+{
     text-color:#8FC1DF;
     color:#8FC1DF;
 }
-
-.sticky-note.theme-teal * {
+.sticky-note.theme-teal *
+{
     text-color:#84E4E7;
     color:#84E4E7;
 }
-
-.sticky-note.theme-purple * {
+.sticky-note.theme-purple *
+{
     text-color:#FBCBF4;
     color:#FBCBF4;
 }
