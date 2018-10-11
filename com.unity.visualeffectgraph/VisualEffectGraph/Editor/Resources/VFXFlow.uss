@@ -37,10 +37,10 @@ VFXFlowAnchor.port.EdgeConnector #connector
 
 VFXFlowAnchor.port.EdgeConnector #type
 {
-    position-type:Absolute;
+    position:absolute;
+    top:1;
+    left:58;
     width:42;
-    position-top:1;
-    position-left:58;
     margin-left:0;
     margin-right:0;
 }

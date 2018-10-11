@@ -34,9 +34,11 @@ namespace UnityEditor.VFX.UI
                 m_ObjectField.control.objectType = controller.portType;
 
             m_ObjectField.RegisterCallback<ChangeEvent<Object>>(OnValueChanged);
-
+#if UNITY_2019_1_OR_NEWER
+            m_ObjectField.style.flexGrow = 1;
+#else
             m_ObjectField.style.flex = new Flex(1, 0);
-
+#endif
             Add(m_ObjectField);
         }
 

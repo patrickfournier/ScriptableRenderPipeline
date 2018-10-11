@@ -98,8 +98,14 @@ namespace UnityEditor.VFX.UI
             }
 
             Vector2 maxSizeInView = viewrect.max - rect.position - sizeMargin;
+            
+#if UNITY_2019_1_OR_NEWER
+            float newWidth = Mathf.Max(element.resolvedStyle.minWidth.value, Mathf.Min(rect.width, maxSizeInView.x));
+            float newHeight = Mathf.Max(element.resolvedStyle.minHeight.value, Mathf.Min(rect.height, maxSizeInView.y));
+#else
             float newWidth = Mathf.Max(element.style.minWidth, Mathf.Min(rect.width, maxSizeInView.x));
             float newHeight = Mathf.Max(element.style.minHeight, Mathf.Min(rect.height, maxSizeInView.y));
+#endif
 
             if (Mathf.Abs(newWidth - rect.width) > 1)
             {
@@ -213,9 +219,11 @@ namespace UnityEditor.VFX.UI
             capabilities |= Capabilities.Movable;
 
             RegisterCallback<MouseDownEvent>(OnMouseClick, TrickleDown.TrickleDown);
-
+#if UNITY_2019_1_OR_NEWER
+            style.position = UnityEngine.UIElements.StyleEnums.Position.Absolute;
+#else
             style.positionType = PositionType.Absolute;
-
+#endif
             SetPosition(BoardPreferenceHelper.LoadPosition(BoardPreferenceHelper.Board.componentBoard, defaultRect));
         }
 
@@ -230,13 +238,22 @@ namespace UnityEditor.VFX.UI
 
         public override Rect GetPosition()
         {
+#if UNITY_2019_1_OR_NEWER
+            return new Rect(resolvedStyle.left, resolvedStyle.top, resolvedStyle.width, resolvedStyle.height);
+#else
             return new Rect(style.positionLeft, style.positionTop, style.width, style.height);
+#endif
         }
 
         public override void SetPosition(Rect newPos)
         {
+#if UNITY_2019_1_OR_NEWER
+            style.left = newPos.xMin;
+            style.top = newPos.yMin;
+#else
             style.positionLeft = newPos.xMin;
             style.positionTop = newPos.yMin;
+#endif               
             style.width = newPos.width;
             style.height = newPos.height;
         }

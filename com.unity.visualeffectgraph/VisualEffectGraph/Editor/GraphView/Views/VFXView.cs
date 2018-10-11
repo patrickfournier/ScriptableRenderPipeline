@@ -239,7 +239,11 @@ namespace UnityEditor.VFX.UI
 
 
             spacer = new VisualElement();
+#if UNITY_2019_1_OR_NEWER
+            spacer.style.flexGrow = 1;
+#else
             spacer.style.flex = new Flex(1);
+#endif
             m_Toolbar.Add(spacer);
 
             Toggle toggleRuntimeMode = new Toggle();
@@ -263,11 +267,19 @@ namespace UnityEditor.VFX.UI
 
 
             m_NoAssetLabel = new Label("Please Select An Asset");
+#if UNITY_2019_1_OR_NEWER
+            m_NoAssetLabel.style.position = UnityEngine.UIElements.StyleEnums.Position.Absolute;
+            m_NoAssetLabel.style.left = 0;
+            m_NoAssetLabel.style.right = 0;
+            m_NoAssetLabel.style.top = 0;
+            m_NoAssetLabel.style.bottom = 0;
+#else
             m_NoAssetLabel.style.positionType = PositionType.Absolute;
             m_NoAssetLabel.style.positionLeft = 0;
             m_NoAssetLabel.style.positionRight = 0;
             m_NoAssetLabel.style.positionTop = 0;
             m_NoAssetLabel.style.positionBottom = 0;
+#endif
             m_NoAssetLabel.style.unityTextAlign = TextAnchor.MiddleCenter;
             m_NoAssetLabel.style.fontSize = 72;
             m_NoAssetLabel.style.color = Color.white * 0.75f;
@@ -328,7 +340,11 @@ namespace UnityEditor.VFX.UI
                 Insert(childCount - 1, m_Blackboard);
                 BoardPreferenceHelper.SetVisible(BoardPreferenceHelper.Board.blackboard, true);
                 m_Blackboard.RegisterCallback<GeometryChangedEvent>(OnFirstBlackboardGeometryChanged);
+#if UNITY_2019_1_OR_NEWER
+                m_Blackboard.style.position = UnityEngine.UIElements.StyleEnums.Position.Absolute;
+#else
                 m_Blackboard.style.positionType = PositionType.Absolute;
+#endif
             }
             else
             {

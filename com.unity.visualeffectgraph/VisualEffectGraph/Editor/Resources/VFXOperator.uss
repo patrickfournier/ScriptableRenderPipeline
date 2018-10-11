@@ -49,11 +49,11 @@ VFXUnifiedOperatorEdit OperandInfo .PopupButton
 
 #edit-container
 {
-    position-type:Absolute;
-    position-top:0;
-    position-bottom:0;
-    position-right:0;
-    position-left:0;
+    position:Absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
     background-color:#282828;
 }
 
@@ -88,8 +88,8 @@ VFXOperatorUI.superCollapsed.VFXNodeUI.node #settings-divider, VFXOperatorUI.sup
 
 .VFXNodeUI.superCollapsed
 {
-height:30;
-width:-1;
+    height:30;
+    width:-1;
 }
 
 .VFXNodeUI.VFXNodeUI.superCollapsed #settings
@@ -111,11 +111,11 @@ width:-1;
 
 .VFXNodeUI.node.superCollapsed #node-border > #title
 {
-    position-type:Relative;
-    position-left:0;
-    position-right:0;
-    position-top:0;
-    position-bottom:0;
+    position:relative;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
     height:-1;
     margin-bottom:0;
     border-bottom-left-radius:2;
@@ -130,11 +130,11 @@ width:-1;
 
 .VFXNodeUI.node.superCollapsed .mainContainer, .VFXNodeUI.superCollapsed #contents, .VFXNodeUI.superCollapsed #contents > #top
 {
-    position-type:Absolute;
-    position-left:0;
-    position-right:0;
-    position-top:0;
-    position-bottom:0;
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
 }
 
 .VFXNodeUI.superCollapsed #contents > #top > #input
@@ -155,10 +155,10 @@ width:-1;
 }
 .VFXNodeUI.superCollapsed #contents > #top > #output
 {
-    position-type:Absolute;
-    position-top:0;
-    position-bottom:0;
-    position-right:1;
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:1;
     flex-grow:0;
     flex:0 0 auto;
     width:20;
@@ -211,19 +211,19 @@ width:-1;
 }
 .VFXNodeUI.superCollapsed.node .VFXDataAnchor
 {
-    position-type:Absolute;
-    position-left:0;
     width:16;
-    position-top:0;
-    position-bottom:0;
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
 }
 .VFXNodeUI.superCollapsed.node VFXOutputDataAnchor.VFXDataAnchor
 {
-    position-type:Absolute;
-    position-right:0;
     width:-1;
-    position-top:0;
-    position-bottom:0;
+    position:absolute;
+    right:0;
+    top:0;
+    bottom:0;
 }
 .VFXNodeUI.superCollapsed.node .VFXDataAnchor #connector
 {

@@ -149,14 +149,24 @@ namespace UnityEditor.VFX.UI
             if (m_Label.panel == null) return 40;
 
             VisualElement element = this;
+#if UNITY_2019_1_OR_NEWER
+            while (element != null && element.resolvedStyle.unityFont == null)
+#else
             while (element != null && element.style.font.value == null)
+#endif
             {
                 element = element.parent;
             }
+            
             if (element != null)
             {
+#if UNITY_2019_1_OR_NEWER
+                m_Label.style.unityFont = element.style.unityFont;
+                return m_Label.MeasureTextSize(m_Label.text,-1, MeasureMode.Undefined, m_Label.resolvedStyle.height, MeasureMode.Exactly).x + m_Provider.depth * depthOffset;
+#else
                 m_Label.style.font = element.style.font;
                 return m_Label.MeasureTextSize(m_Label.text,-1, MeasureMode.Undefined, m_Label.style.height, MeasureMode.Exactly).x + m_Provider.depth * depthOffset;
+#endif
             }
             return 40 + m_Provider.depth * depthOffset;
         }

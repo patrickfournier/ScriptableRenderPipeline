@@ -161,9 +161,16 @@ namespace UnityEditor.VFX.UI
             {
                 VisualElement child = context.items[i];
                 Rect rect = context.originalPositions[i];
+                
+#if UNITY_2019_1_OR_NEWER
+                child.style.position = UnityEngine.UIElements.StyleEnums.Position.Absolute;
+                child.style.left = rect.x;
+                child.style.top = rect.y;
+#else
                 child.style.positionType = PositionType.Absolute;
                 child.style.positionLeft = rect.x;
                 child.style.positionTop = rect.y;
+#endif
                 child.style.width = rect.width;
                 child.style.height = rect.height;
             }
@@ -182,12 +189,20 @@ namespace UnityEditor.VFX.UI
 
             foreach (var child in m_ListContainer.Children())
             {
+#if UNITY_2019_1_OR_NEWER
+                ResetPositionProperties(child);
+#else
                 child.ResetPositionProperties();
+#endif
             }
             int hoveredIndex = GetHoveredIndex(context, mouseWorldPosition);
 
             m_ListContainer.Insert(hoveredIndex != -1 ? hoveredIndex : context.draggedIndex, item);
+#if UNITY_2019_1_OR_NEWER
+            ResetPositionProperties(m_ListContainer);
+#else
             m_ListContainer.ResetPositionProperties();
+#endif
 
             if (hoveredIndex != -1)
             {
@@ -198,9 +213,11 @@ namespace UnityEditor.VFX.UI
         public void ItemDragging(object ctx, VisualElement item, float offset, Vector2 mouseWorldPosition)
         {
             DraggingContext context = (DraggingContext)ctx;
-
+#if UNITY_2019_1_OR_NEWER
+            item.style.top = context.originalPositions[context.draggedIndex].y + offset;
+#else
             item.style.positionTop = context.originalPositions[context.draggedIndex].y + offset;
-
+#endif
             int hoveredIndex = GetHoveredIndex(context, mouseWorldPosition);
 
             if (hoveredIndex != -1)
@@ -211,30 +228,54 @@ namespace UnityEditor.VFX.UI
                 {
                     for (int i = 0; i < hoveredIndex; ++i)
                     {
+#if UNITY_2019_1_OR_NEWER
+                        context.items[i].style.top = context.originalPositions[i].y;
+#else
                         context.items[i].style.positionTop = context.originalPositions[i].y;
+#endif
                     }
                     for (int i = hoveredIndex; i < context.draggedIndex; ++i)
                     {
+#if UNITY_2019_1_OR_NEWER
+                        context.items[i].style.top = context.originalPositions[i].y + draggedHeight;
+#else
                         context.items[i].style.positionTop = context.originalPositions[i].y + draggedHeight;
+#endif
                     }
                     for (int i = context.draggedIndex + 1; i < context.items.Length; ++i)
                     {
+#if UNITY_2019_1_OR_NEWER
+                        context.items[i].style.top = context.originalPositions[i].y;
+#else
                         context.items[i].style.positionTop = context.originalPositions[i].y;
+#endif
                     }
                 }
                 else if (hoveredIndex > context.draggedIndex)
                 {
                     for (int i = 0; i < context.draggedIndex; ++i)
                     {
+#if UNITY_2019_1_OR_NEWER
+                        context.items[i].style.top = context.originalPositions[i].y;
+#else
                         context.items[i].style.positionTop = context.originalPositions[i].y;
+#endif
                     }
                     for (int i = hoveredIndex; i > context.draggedIndex; --i)
                     {
+#if UNITY_2019_1_OR_NEWER
+                        context.items[i].style.top = context.originalPositions[i].y - draggedHeight;
+#else
                         context.items[i].style.positionTop = context.originalPositions[i].y - draggedHeight;
+#endif
                     }
                     for (int i = hoveredIndex + 1; i < context.items.Length; ++i)
                     {
+#if UNITY_2019_1_OR_NEWER
+                        context.items[i].style.top = context.originalPositions[i].y;
+#else
                         context.items[i].style.positionTop = context.originalPositions[i].y;
+#endif
                     }
                 }
             }
@@ -243,7 +284,11 @@ namespace UnityEditor.VFX.UI
                 for (int i = 0; i < context.items.Length; ++i)
                 {
                     if (i != context.draggedIndex)
+#if UNITY_2019_1_OR_NEWER
+                        context.items[i].style.top = context.originalPositions[i].y;
+#else
                         context.items[i].style.positionTop = context.originalPositions[i].y;
+#endif
                 }
             }
         }
@@ -420,5 +465,23 @@ namespace UnityEditor.VFX.UI
         public virtual void OnRemove(int index)
         {
         }
+        
+#if UNITY_2019_1_OR_NEWER
+        static void ResetPositionProperties(VisualElement elt)
+        {
+            var style = elt.style;
+            style.position = StyleKeyword.Null;
+            style.marginLeft = StyleKeyword.Null;
+            style.marginRight = StyleKeyword.Null;
+            style.marginBottom = StyleKeyword.Null;
+            style.marginTop = StyleKeyword.Null;
+            style.left = StyleKeyword.Null;
+            style.top = StyleKeyword.Null;
+            style.right = StyleKeyword.Null;
+            style.bottom = StyleKeyword.Null;
+            style.width = StyleKeyword.Null;
+            style.height = StyleKeyword.Null;
+        }
+#endif
     }
 }

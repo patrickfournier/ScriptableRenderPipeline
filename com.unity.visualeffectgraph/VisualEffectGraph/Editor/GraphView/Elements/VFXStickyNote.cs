@@ -59,12 +59,20 @@ namespace UnityEditor.VFX.UI
     {
         public void OnMoved()
         {
+#if UNITY_2019_1_OR_NEWER
+            controller.position = new Rect(resolvedStyle.left, resolvedStyle.top, resolvedStyle.width, resolvedStyle.height);
+#else
             controller.position = new Rect(style.positionLeft, style.positionTop, style.width, style.height);
+#endif
         }
 
         public override void OnResized()
         {
+#if UNITY_2019_1_OR_NEWER
+            controller.position = new Rect(resolvedStyle.left, resolvedStyle.top, resolvedStyle.width, resolvedStyle.height);
+#else
             controller.position = new Rect(style.positionLeft, style.positionTop, style.width, style.height);
+#endif
         }
 
         Controller IControlledElement.controller

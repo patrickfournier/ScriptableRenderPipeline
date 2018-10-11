@@ -84,8 +84,12 @@ namespace UnityEditor.VFX.UI
             }
 
             m_HeaderIcon.image = GetIconForVFXType(controller.model.inputType);
-            m_HeaderIcon.visible = m_HeaderIcon.image.value != null;
 
+#if UNITY_2019_1_OR_NEWER
+            m_HeaderIcon.visible = m_HeaderIcon.image != null;
+#else
+            m_HeaderIcon.visible = m_HeaderIcon.image.value != null;
+#endif
 
             Profiler.BeginSample("VFXContextUI.SetAllStyleClasses");
 
@@ -145,7 +149,11 @@ namespace UnityEditor.VFX.UI
                     mainContainer.Add(m_Footer);
                 m_FooterTitle.text = controller.model.outputType.ToString().Substring(1);
                 m_FooterIcon.image = GetIconForVFXType(controller.model.outputType);
+#if UNITY_2019_1_OR_NEWER
+                m_FooterIcon.visible = m_FooterIcon.image != null;
+#else
                 m_FooterIcon.visible = m_FooterIcon.image.value != null;
+#endif
             }
 
             Profiler.BeginSample("VFXContextUI.CreateInputFlow");
@@ -276,9 +284,11 @@ namespace UnityEditor.VFX.UI
             }
 
             float y = GetBlockIndexY(index, false);
-
+#if UNITY_2019_1_OR_NEWER
+            m_DragDisplay.style.top = y;
+#else
             m_DragDisplay.style.positionTop = y;
-
+#endif
             m_BlockContainer.Add(m_DragDisplay);
         }
 
@@ -427,16 +437,15 @@ namespace UnityEditor.VFX.UI
 
         public override void SetPosition(Rect newPos)
         {
-            //if (classList.Contains("vertical"))
-            /*{
-                base.SetPosition(newPos);
-            }
-            else*/
-            {
+            #if UNITY_2019_1_OR_NEWER
+                style.position = UnityEngine.UIElements.StyleEnums.Position.Absolute;
+                style.left = newPos.x;
+                style.top = newPos.y;
+            #else
                 style.positionType = PositionType.Absolute;
                 style.positionLeft = newPos.x;
                 style.positionTop = newPos.y;
-            }
+            #endif
         }
 
         public void RemoveBlock(VFXBlockUI block)

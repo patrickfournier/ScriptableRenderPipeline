@@ -121,8 +121,11 @@ namespace UnityEditor.VFX.UI
             VFXView view = GetFirstAncestorOfType<VFXView>();
             if (view != null && m_Mat != null)
             {
+#if UNITY_2019_1_OR_NEWER
+                float radius = resolvedStyle.borderTopLeftRadius;
+#else
                 float radius = style.borderRadius;
-
+#endif
                 float realBorder = style.borderLeftWidth.value * view.scale;
 
                 Vector4 size = new Vector4(layout.width * .5f, layout.height * 0.5f, 0, 0);
