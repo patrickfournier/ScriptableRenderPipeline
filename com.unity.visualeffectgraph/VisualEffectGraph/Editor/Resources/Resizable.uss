@@ -1,4 +1,4 @@
-ResizableElement 
+ResizableElement
 {
     position:absolute;
     top: 0;
@@ -9,20 +9,20 @@ ResizableElement
     align-items: stretch;
 }
 
-ResizableElement #right 
+ResizableElement #right
 {
     width:8;
     flex-direction: column;
     align-items: stretch;
 }
 
-ResizableElement #left 
+ResizableElement #left
 {
     width:8;
     flex-direction: column;
     align-items: stretch;
 }
-ResizableElement #middle 
+ResizableElement #middle
 {
     flex:1 0 auto;
     flex-direction: column;
@@ -30,54 +30,54 @@ ResizableElement #middle
 }
 
 
-ResizableElement #left #top-left-resize 
+ResizableElement #left #top-left-resize
 {
     height:8;
     cursor: resize-up-left;
 }
 
-ResizableElement #left #left-resize 
+ResizableElement #left #left-resize
 {
     flex:1 0 auto;
     cursor: resize-horizontal;
 }
 
-ResizableElement #left #bottom-left-resize 
+ResizableElement #left #bottom-left-resize
 {
     height:8;
     cursor: resize-up-right;
 }
 
-ResizableElement #middle #top-resize 
+ResizableElement #middle #top-resize
 {
     height:8;
     cursor: resize-vertical;
 }
 
-ResizableElement #middle #middle-center 
+ResizableElement #middle #middle-center
 {
     flex:1 0 auto;
 }
 
-ResizableElement #middle #bottom-resize 
+ResizableElement #middle #bottom-resize
 {
     height:8;
     cursor: resize-vertical;
 }
 
-ResizableElement #right #top-right-resize 
+ResizableElement #right #top-right-resize
 {
     height:8;
     cursor: resize-up-right;
 }
 
-ResizableElement #right #right-resize 
+ResizableElement #right #right-resize
 {
     flex:1 0 auto;
     cursor: resize-horizontal;
 }
 
-ResizableElement #right #bottom-right-resize 
+ResizableElement #right #bottom-right-resize
 {
     height:8;
     cursor: resize-up-left;

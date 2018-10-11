@@ -16,7 +16,7 @@
     cursor: text;
 }*/
 
-VFXColorField 
+VFXColorField
 {
     flex:1 0 auto;
     flex-direction:row;
@@ -24,12 +24,12 @@ VFXColorField
     margin-right:0;
 }
 
-VFXColorField #indeterminate 
+VFXColorField #indeterminate
 {
     color:#000;
 }
 
-CurveField 
+CurveField
 {
     height:16;
     background-color:rgb(86, 86, 86);
@@ -40,26 +40,26 @@ CurveField
     border-color:#000;
 }
 
-.sliderField 
+.sliderField
 {
     flex-direction:row;
 }
-.sliderField Slider 
+.sliderField Slider
 {
     flex:1 0 auto;
 }
-.sliderField #Field 
+.sliderField #Field
 {
     width:40;
     flex:0 0 auto;
 }
-.sliderField #indeterminate 
+.sliderField #indeterminate
 {
     width:40;
     flex:0 0 auto;
 }
 
-.PopupButton 
+.PopupButton
 {
     -unity-text-align:middle-left;
     height: 16;
@@ -73,22 +73,22 @@ CurveField
 }
 
 
-VFXEnumField .PopupButton:hover 
+VFXEnumField .PopupButton:hover
 {
     color: #FFF;
 }
 
-VFXStringFieldPushButton 
+VFXStringFieldPushButton
 {
     height:16;
 }
 
-VFXStringFieldPushButton Button 
+VFXStringFieldPushButton Button
 {
     height:16;
 }
 
-Button.MiniDropDown 
+Button.MiniDropDown
 {
     -unity-slice-right: 12;
 }

@@ -21,29 +21,29 @@
     Visible:true;
 }
 
-.VFXDataAnchor #lineSpacer 
+.VFXDataAnchor #lineSpacer
 {
     flex:1 0 auto;
 }
-.VFXDataAnchor #line 
+.VFXDataAnchor #line
 {
     align-self:stretch;
 }
 
 
-.VFXDataAnchor.port #type 
+.VFXDataAnchor.port #type
 {
     margin-left:0;
     margin-right:0;
 }
 
 
-.VFXDataAnchor.port #connector 
+.VFXDataAnchor.port #connector
 {
     margin-right:0;
 }
 
-.VFXDataAnchor #connector #hole 
+.VFXDataAnchor #connector #hole
 {
     position:absolute;
     right:0;
@@ -51,7 +51,7 @@
     top:0;
     bottom:0;
 }
-.VFXDataAnchor #connector #hole #cap 
+.VFXDataAnchor #connector #hole #cap
 {
     position:absolute;
     right:0;
@@ -63,7 +63,7 @@
 }
 
 
-.VFXDataAnchor.hidden 
+.VFXDataAnchor.hidden
 {
     max-height:0;
     min-height:0;
@@ -71,7 +71,7 @@
     Visible:false;
 }
 
-.VFXDataAnchor.hidden #connector 
+.VFXDataAnchor.hidden #connector
 {
     margin-top:-12;
     border-left-width:0;
@@ -85,25 +85,25 @@
     position-right:0;
 }
 
-.VFXDataAnchor.Output 
+.VFXDataAnchor.Output
 {
     right:0;
     padding-right:0;
     margin-left:0;
 }
 
-VFXDataAnchor.Output #type 
+VFXDataAnchor.Output #type
 {
     color: rgb(153,153,153);
     -unity-text-align:middle-right;
     flex:1 0 auto;
 }
-.VFXDataAnchor .propertyrm 
+.VFXDataAnchor .propertyrm
 {
     flex:1 1 auto;
 }
 
-.VFXDataAnchor .space 
+.VFXDataAnchor .space
 {
     border-radius:4;
     border-left-width:1;
@@ -121,26 +121,26 @@ VFXDataAnchor.Output #type
     -unity-text-align: middle-center;
 }
 
-.VFXOutputDataAnchor #icon 
+.VFXOutputDataAnchor #icon
 {
     margin-top:6;
     width:6;
     height:6;
 }
-.VFXOutputDataAnchor #type 
+.VFXOutputDataAnchor #type
 {
     color:#c4c4c4;
     margin-right:12;
 }
 
 /*Default*/
-.VFXDataAnchor.connected > #connector 
+.VFXDataAnchor.connected > #connector
 {
     border-color:#787878;
 }
 
 
-*:disabled 
+*:disabled
 {
     opacity:0.5;
 }

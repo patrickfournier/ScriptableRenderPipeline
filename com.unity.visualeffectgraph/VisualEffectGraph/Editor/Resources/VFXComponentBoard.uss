@@ -30,7 +30,7 @@ VFXComponentBoard.graphElement
 }
 
 
-VFXComponentBoard ScrollView 
+VFXComponentBoard ScrollView
 {
     flex-direction:column;
     align-items:stretch;
@@ -38,7 +38,7 @@ VFXComponentBoard ScrollView
     flex: 1 1 auto;
 }
 
-VFXComponentBoard, #component-container 
+VFXComponentBoard, #component-container
 {
     flex-direction:column;
     align-items:stretch;
@@ -81,65 +81,65 @@ VFXComponentBoardEventUI Button, #on-play-button, #on-stop-button,#attach, #sele
 }
 
 
-#attach, #select 
+#attach, #select
 {
     width:60;
 }
 
-#component-path 
+#component-path
 {
     flex:1;
 }
 
-#particle-count-container, #attach-container 
+#particle-count-container, #attach-container
 {
     flex-direction:row;
 }
 
-#attach-container 
+#attach-container
 {
     padding-top: 8;
     padding-bottom: 8;
 }
-#particle-count-container > #particle-count 
+#particle-count-container > #particle-count
 {
     flex:1 0 auto;
 }
 
-#toolbar 
+#toolbar
 {
     flex-direction:row;
 }
 
-#toolbar Button 
+#toolbar Button
 {
     flex:1 0 auto;
     height:24;
     align-items:center;
 }
 
-#toolbar Button#stop #icon 
+#toolbar Button#stop #icon
 {
     image:resource("VFX/Stop");
 }
-#toolbar Button#play #icon 
+#toolbar Button#play #icon
 {
     image:resource("VFX/Pause");
 }
-#toolbar Button#play.paused #icon 
+#toolbar Button#play.paused #icon
 {
     image:resource("VFX/Play");
 }
-#toolbar Button#step #icon 
+#toolbar Button#step #icon
 {
     image:resource("VFX/Step");
 }
-#toolbar Button#restart #icon 
+#toolbar Button#restart #icon
 {
     image:resource("VFX/Restart");
 }
 
-#play-rate-container 
+#play-rate-container
 {
     flex-direction:row;
     height:28;
@@ -147,22 +147,22 @@ VFXComponentBoardEventUI Button, #on-play-button, #on-stop-button,#attach, #sele
     padding-bottom:8;
 }
 
-#events-label 
+#events-label
 {
     padding-top:8;
 }
 
-#play-rate-container #play-rate-slider 
+#play-rate-container #play-rate-slider
 {
     flex:1 0 auto;
 }
 
-#play-rate-container #play-rate-field 
+#play-rate-container #play-rate-field
 {
     width:80;
 }
 
-#play-rate-container #play-rate-menu 
+#play-rate-container #play-rate-menu
 {
     padding-left:0;
     border-left:0;
@@ -171,12 +171,12 @@ VFXComponentBoardEventUI Button, #on-play-button, #on-stop-button,#attach, #sele
     height:16;
 }
 
-VFXComponentBoardEventUI 
+VFXComponentBoardEventUI
 {
     flex-direction:row;
     align-items:center;
 }
-VFXComponentBoardEventUI #event-name 
+VFXComponentBoardEventUI #event-name
 {
     flex:1;
 }

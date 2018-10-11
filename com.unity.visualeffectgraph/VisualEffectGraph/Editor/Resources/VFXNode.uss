@@ -23,29 +23,29 @@
     border-right-width: 0;
 }
 
-.VFXNodeUI.node #node-border > #title 
+.VFXNodeUI.node #node-border > #title
 {
     justify-content:flex-start;
 }
 
-.VFXNodeUI.node #node-border > #title > #title-label 
+.VFXNodeUI.node #node-border > #title > #title-label
 {
     flex:1 0 auto;
 }
 
 
-.VFXNodeUI #contents 
+.VFXNodeUI #contents
 {
     background-color: rgba(63,63,63,0.8);
 }
 
-.VFXNodeUI.node #contents > #top > #input 
+.VFXNodeUI.node #contents > #top > #input
 {
     background-color: rgba(0,0,0,0.0);
 }
 
 
-.VFXNodeUI #settings 
+.VFXNodeUI #settings
 {
     margin-top:6;
     margin-bottom:6;
@@ -55,19 +55,19 @@
     overflow:hidden;
 }
 
-.VFXNodeUI.collapsed #settings 
+.VFXNodeUI.collapsed #settings
 {
     margin-top:0;
     margin-bottom:0;
 }
 
-.VFXNodeUI #settings.nosettings 
+.VFXNodeUI #settings.nosettings
 {
     margin-top:0;
     margin-bottom:0;
 }
 
-.VFXNodeUI.collapsed #settings 
+.VFXNodeUI.collapsed #settings
 {
     max-height:0;
     height:0;
@@ -80,19 +80,19 @@
     background-image : resource("GraphView/Nodes/NodeChevronDown.png");
 }
 
-.VFXNodeUI.node #contents > #top > #input 
+.VFXNodeUI.node #contents > #top > #input
 {
     padding-top:6;
     padding-bottom:6;
     flex: 1 1 auto;
 }
 
-#line 
+#line
 {
     background-color:#4c4c4c;
 }
 
-#settings-divider 
+#settings-divider
 {
     background-color: rgba(35,35,35,0.8);
     border-color: rgba(35,35,35,0.8);
@@ -100,13 +100,13 @@
     border-bottom-width: 1;
 }
 
-#settings-divider.hidden 
+#settings-divider.hidden
 {
     height:0;
     border-bottom-width: 0;
 }
 
-.VFXNodeUI.collapsed #settings-divider 
+.VFXNodeUI.collapsed #settings-divider
 {
     height:0;
     border-bottom-width: 0;

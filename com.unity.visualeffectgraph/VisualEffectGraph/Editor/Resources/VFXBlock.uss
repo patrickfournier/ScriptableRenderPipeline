@@ -1,5 +1,4 @@
-VFXBlockUI.VFXNodeUI.node 
-{
+VFXBlockUI.VFXNodeUI.node {
     flex:1 0 auto;
     align-items:stretch;
     border-radius:0;
