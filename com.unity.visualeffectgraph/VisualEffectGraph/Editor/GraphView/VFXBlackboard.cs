@@ -294,8 +294,13 @@ namespace UnityEditor.VFX.UI
 
         void BuildContextualMenu(ContextualMenuPopulateEvent evt)
         {
+#if UNITY_2019_1_OR_NEWER
+            evt.menu.AppendAction("Rename", (a) => OpenTextEditor(), DropdownMenuAction.AlwaysEnabled);
+            evt.menu.AppendAction("Delete", (a) => GetFirstAncestorOfType<VFXView>().DeleteElements(new GraphElement[] { this }), DropdownMenuAction.AlwaysEnabled);
+#else
             evt.menu.AppendAction("Rename", (a) => OpenTextEditor(), DropdownMenu.MenuAction.AlwaysEnabled);
             evt.menu.AppendAction("Delete", (a) => GetFirstAncestorOfType<VFXView>().DeleteElements(new GraphElement[] { this }), DropdownMenu.MenuAction.AlwaysEnabled);
+#endif
 
             evt.StopPropagation();
         }
@@ -330,7 +335,11 @@ namespace UnityEditor.VFX.UI
             {
                 foreach (var parameter in view.graphElements.ToList().OfType<VFXParameterUI>().Where(t => t.controller.parentController == controller))
                 {
+#if UNITY_2019_1_OR_NEWER
+                    if (evt.eventTypeId == MouseEnterEvent.TypeId())
+#else
                     if (evt.GetEventTypeId() == MouseEnterEvent.TypeId())
+#endif
                         parameter.AddToClassList("hovered");
                     else
                         parameter.RemoveFromClassList("hovered");
@@ -353,7 +362,11 @@ namespace UnityEditor.VFX.UI
                 button.clickable.clicked += OnExpand;
             }
 
+#if UNITY_2019_1_OR_NEWER
+            clippingOption = ClippingOption.ClipAndCacheContents;
+#else
             clippingOptions = ClippingOptions.ClipAndCacheContents;
+#endif
         }
 
         void OnExpand()
@@ -510,7 +523,11 @@ namespace UnityEditor.VFX.UI
             m_DragIndicator.style.positionType = PositionType.Absolute;
             shadow.Add(m_DragIndicator);
 
+#if UNITY_2019_1_OR_NEWER
+            clippingOption = ClippingOption.ClipContents;
+#else
             clippingOptions = ClippingOptions.ClipContents;
+#endif
             SetDragIndicatorVisible(false);
 
             Resizer resizer = this.Query<Resizer>();

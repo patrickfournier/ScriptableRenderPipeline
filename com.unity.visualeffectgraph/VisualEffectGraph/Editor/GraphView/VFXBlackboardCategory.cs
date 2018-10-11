@@ -342,9 +342,13 @@ namespace UnityEditor.VFX.UI
         {
             if (evt.target == this)
             {
+#if UNITY_2019_1_OR_NEWER
+                evt.menu.AppendAction("Rename", (a) => OpenTextEditor(), DropdownMenuAction.AlwaysEnabled);
+                evt.menu.AppendAction("Delete", (a) => GetFirstAncestorOfType<VFXView>().controller.RemoveCategory(m_TitleLabel.text), DropdownMenuAction.AlwaysEnabled);
+#else
                 evt.menu.AppendAction("Rename", (a) => OpenTextEditor(), DropdownMenu.MenuAction.AlwaysEnabled);
-
                 evt.menu.AppendAction("Delete", (a) => GetFirstAncestorOfType<VFXView>().controller.RemoveCategory(m_TitleLabel.text), DropdownMenu.MenuAction.AlwaysEnabled);
+#endif
             }
         }
 

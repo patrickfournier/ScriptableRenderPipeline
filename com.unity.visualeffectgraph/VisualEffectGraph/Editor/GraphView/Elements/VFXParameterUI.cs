@@ -157,12 +157,20 @@ namespace UnityEditor.VFX.UI
         {
             if (evt.target == this && controller != null)
             {
+#if UNITY_2019_1_OR_NEWER
+                evt.menu.AppendAction("Convert to Inline", OnConvertToInline, e => DropdownMenuAction.Status.Normal);
+#else
                 evt.menu.AppendAction("Convert to Inline", OnConvertToInline, e => DropdownMenu.MenuAction.StatusFlags.Normal);
+#endif
                 evt.menu.AppendSeparator();
             }
         }
 
+#if UNITY_2019_1_OR_NEWER
+        void OnConvertToInline(DropdownMenuAction evt)
+#else
         void OnConvertToInline(DropdownMenu.MenuAction evt)
+#endif
         {
             controller.ConvertToInline();
         }
@@ -179,7 +187,11 @@ namespace UnityEditor.VFX.UI
             if (row == null)
                 return;
 
+#if UNITY_2019_1_OR_NEWER
+            if (evt.eventTypeId == MouseEnterEvent.TypeId())
+#else
             if (evt.GetEventTypeId() == MouseEnterEvent.TypeId())
+#endif
                 row.AddToClassList("hovered");
             else
                 row.RemoveFromClassList("hovered");
