@@ -363,7 +363,8 @@ namespace UnityEditor.VFX.UI
             }
 
 #if UNITY_2019_1_OR_NEWER
-            clippingOption = ClippingOption.ClipAndCacheContents;
+            cacheAsBitmap = true;
+            style.overflow = Overflow.Hidden;
 #else
             clippingOptions = ClippingOptions.ClipAndCacheContents;
 #endif
@@ -521,7 +522,7 @@ namespace UnityEditor.VFX.UI
             shadow.Add(m_DragIndicator);
 
 #if UNITY_2019_1_OR_NEWER
-            clippingOption = ClippingOption.ClipContents;
+            style.overflow = Overflow.Hidden;
 #else
             clippingOptions = ClippingOptions.ClipContents;
 #endif

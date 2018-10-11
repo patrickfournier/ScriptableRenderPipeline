@@ -209,7 +209,7 @@ namespace UnityEditor.VFX.UI
             AddToClassList("selectable");
 
 #if UNITY_2019_1_OR_NEWER
-            this.mainContainer.clippingOption = ClippingOption.NoClipping;
+            this.mainContainer.style.overflow = Overflow.Visible;
 #else
             this.mainContainer.clippingOptions = ClippingOptions.NoClipping;
 #endif
