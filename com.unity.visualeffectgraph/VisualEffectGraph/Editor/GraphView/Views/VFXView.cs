@@ -999,7 +999,7 @@ namespace UnityEditor.VFX.UI
         {
             foreach (var layer in contentViewContainer.Children())
             {
-                foreach (var element in layer)
+                foreach (var element in layer.Children())
                 {
                     if (element is VFXContextUI)
                     {
@@ -1013,7 +1013,7 @@ namespace UnityEditor.VFX.UI
         {
             foreach (var layer in contentViewContainer.Children())
             {
-                foreach (var element in layer)
+                foreach (var element in layer.Children())
                 {
                     if (element is VFXNodeUI)
                     {
@@ -1150,7 +1150,7 @@ namespace UnityEditor.VFX.UI
         {
             foreach (var layer in contentViewContainer.Children())
             {
-                foreach (var element in layer)
+                foreach (var element in layer.Children())
                 {
                     if (element is VFXNodeUI)
                     {
@@ -1176,7 +1176,7 @@ namespace UnityEditor.VFX.UI
         {
             foreach (var layer in contentViewContainer.Children())
             {
-                foreach (var element in layer)
+                foreach (var element in layer.Children())
                 {
                     if (element is VFXDataEdge)
                     {
@@ -1193,7 +1193,7 @@ namespace UnityEditor.VFX.UI
         {
             foreach (var layer in contentViewContainer.Children())
             {
-                foreach (var element in layer)
+                foreach (var element in layer.Children())
                 {
                     if (element is VFXDataEdge)
                     {
