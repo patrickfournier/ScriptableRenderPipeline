@@ -313,7 +313,7 @@ namespace UnityEditor.VFX.UI
 
             Undo.undoRedoPerformed = OnUndoPerformed;
 
-            persistenceKey = "VFXView";
+            viewDataKey = "VFXView";
 
 
             RegisterCallback<GeometryChangedEvent>(OnFirstResize);
@@ -506,10 +506,10 @@ namespace UnityEditor.VFX.UI
             }
         }
 
-        public override void OnPersistentDataReady()
+        internal override void OnViewDataReady()
         {
             // warning : default could messes with view restoration from the VFXViewWindow (TODO : check this)
-            base.OnPersistentDataReady();
+            base.OnViewDataReady();
         }
 
         void NewControllerSet()
