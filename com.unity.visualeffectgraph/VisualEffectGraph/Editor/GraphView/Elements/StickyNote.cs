@@ -184,7 +184,7 @@ namespace UnityEditor.VFX.UI
         public ResizableElement(string uiFile)
         {
             var tpl = Resources.Load<VisualTreeAsset>(uiFile);
-            AddStyleSheetPath("Resizable");
+            this.AddStyleSheetPathWithUnityVersion("Resizable");
 
             tpl.CloneTree(this, new Dictionary<string, VisualElement>());
 
@@ -427,8 +427,8 @@ namespace UnityEditor.VFX.UI
 
         public StickyNote(Vector2 position) : this("uxml/StickyNote", position)
         {
-            AddStyleSheetPath("Selectable");
-            AddStyleSheetPath("StickyNote");
+            this.AddStyleSheetPathWithUnityVersion("Selectable");
+            this.AddStyleSheetPathWithUnityVersion("StickyNote");
             RegisterCallback<AttachToPanelEvent>(OnAttachToPanel);
         }
 

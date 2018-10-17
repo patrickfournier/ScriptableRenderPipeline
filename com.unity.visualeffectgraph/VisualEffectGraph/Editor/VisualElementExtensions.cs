@@ -37,12 +37,21 @@ static class VisualElementExtensions
         return visualElement.panel.focusController.focusedElement == visualElement;
     }
 
+    public static void AddStyleSheetPathWithUnityVersion(this VisualElement visualElement, string path) 
+    {
+      #if UNITY_2019_1_OR_NEWER
+        visualElement.AddStyleSheetPath(path);
+      #else
+        visualElement.AddStyleSheetPath("pre-19-1/" + path);
+      #endif
+    }
+
     public static void AddStyleSheetPathWithSkinVariant(this VisualElement visualElement, string path)
     {
-        visualElement.AddStyleSheetPath(path);
+        visualElement.AddStyleSheetPathWithUnityVersion(path);
         //if (true)
         {
-            visualElement.AddStyleSheetPath(path + "Dark");
+            visualElement.AddStyleSheetPathWithUnityVersion(path + "Dark");
         }
         /*else
         {

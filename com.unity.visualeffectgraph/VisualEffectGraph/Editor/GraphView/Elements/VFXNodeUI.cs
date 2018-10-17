@@ -152,7 +152,7 @@ namespace UnityEditor.VFX.UI
 
         void Initialize()
         {
-            AddStyleSheetPath("VFXNode");
+            this.AddStyleSheetPathWithUnityVersion("VFXNode");
             AddToClassList("VFXNodeUI");
 #if UNITY_2019_1_OR_NEWER
             clippingOption = ClippingOption.ClipContents;

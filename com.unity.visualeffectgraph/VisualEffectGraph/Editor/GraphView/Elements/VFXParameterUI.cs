@@ -92,8 +92,8 @@ namespace UnityEditor.VFX.UI
         public VFXParameterUI() : base("uxml/VFXParameter")
         {
             RemoveFromClassList("VFXNodeUI");
-            AddStyleSheetPath("VFXParameter");
-            AddStyleSheetPath("StyleSheets/GraphView/Node.uss");
+            this.AddStyleSheetPathWithUnityVersion("VFXParameter");
+            this.AddStyleSheetPathWithUnityVersion("StyleSheets/GraphView/Node.uss");
 
             RegisterCallback<MouseEnterEvent>(OnMouseHover);
             RegisterCallback<MouseLeaveEvent>(OnMouseHover);

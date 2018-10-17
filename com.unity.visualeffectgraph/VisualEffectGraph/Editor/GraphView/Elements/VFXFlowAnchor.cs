@@ -54,7 +54,7 @@ namespace UnityEditor.VFX.UI
 
         protected VFXFlowAnchor(Orientation anchorOrientation, Direction anchorDirection, Type type) : base(anchorOrientation, anchorDirection, Capacity.Multi, type)
         {
-            AddStyleSheetPath("VFXFlow");
+            this.AddStyleSheetPathWithUnityVersion("VFXFlow");
             AddToClassList("EdgeConnector");
         }
 

@@ -167,7 +167,7 @@ namespace UnityEditor.VFX.UI
 
             tpl.CloneTree(contentContainer, new Dictionary<string, VisualElement>());
 
-            contentContainer.AddStyleSheetPath("VFXComponentBoard");
+            contentContainer.AddStyleSheetPathWithUnityVersion("VFXComponentBoard");
 
             m_AttachButton = this.Query<Button>("attach");
             m_AttachButton.clickable.clicked += ToggleAttach;

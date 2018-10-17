@@ -199,7 +199,7 @@ namespace UnityEditor.VFX.UI
             this.AddManipulator(new RectangleSelector());
             this.AddManipulator(new FreehandSelector());
 
-            AddStyleSheetPath("VFXView");
+            this.AddStyleSheetPathWithUnityVersion("VFXView");
 
             AddLayer(-1);
             AddLayer(1);

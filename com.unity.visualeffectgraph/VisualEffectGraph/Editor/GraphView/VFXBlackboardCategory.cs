@@ -137,7 +137,7 @@ namespace UnityEditor.VFX.UI
         public void SetSelectable()
         {
             capabilities |= Capabilities.Selectable | Capabilities.Droppable | Capabilities.Deletable;
-            AddStyleSheetPath("Selectable");
+            this.AddStyleSheetPathWithUnityVersion("Selectable");
             AddToClassList("selectable");
             shadow.Add(new VisualElement() {name = "selection-border", pickingMode = PickingMode.Ignore});
 

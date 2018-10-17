@@ -27,7 +27,7 @@ namespace UnityEditor.VFX.UI
 
         public VFXOperatorUI()
         {
-            AddStyleSheetPath("VFXOperator");
+            this.AddStyleSheetPathWithUnityVersion("VFXOperator");
 
             m_Middle = new VisualElement();
             m_Middle.name = "middle";

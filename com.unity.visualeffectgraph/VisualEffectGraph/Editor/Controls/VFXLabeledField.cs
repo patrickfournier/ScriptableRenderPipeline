@@ -167,7 +167,7 @@ namespace UnityEditor.VFX.UIElements
 
         void SetupLabel()
         {
-            m_Label.AddStyleSheetPath("VFXLabel");
+            m_Label.AddStyleSheetPathWithUnityVersion("VFXLabel");
             if (typeof(IValueField<U>).IsAssignableFrom(typeof(T)))
             {
                 if (typeof(U) == typeof(float))

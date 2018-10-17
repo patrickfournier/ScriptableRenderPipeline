@@ -501,7 +501,7 @@ namespace UnityEditor.VFX.UI
             Add(m_DefaultCategory);
             m_DefaultCategory.headerVisible = false;
 
-            AddStyleSheetPath("VFXBlackboard");
+            this.AddStyleSheetPathWithUnityVersion("VFXBlackboard");
 
             RegisterCallback<MouseDownEvent>(OnMouseClick, TrickleDown.TrickleDown);
 

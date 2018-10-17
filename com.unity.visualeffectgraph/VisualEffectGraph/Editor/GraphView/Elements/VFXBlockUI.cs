@@ -48,7 +48,7 @@ namespace UnityEditor.VFX.UI
         public VFXBlockUI()
         {
             Profiler.BeginSample("VFXBlockUI.VFXBlockUI");
-            AddStyleSheetPath("VFXBlock");
+            this.AddStyleSheetPathWithUnityVersion("VFXBlock");
             pickingMode = PickingMode.Position;
             m_EnableToggle = new Toggle();
             m_EnableToggle.RegisterCallback<ChangeEvent<bool>>(OnToggleEnable);

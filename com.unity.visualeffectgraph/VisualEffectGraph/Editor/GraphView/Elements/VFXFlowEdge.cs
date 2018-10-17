@@ -16,7 +16,7 @@ namespace UnityEditor.VFX.UI
     {
         public VFXFlowEdge()
         {
-            AddStyleSheetPath("VFXFlowEdge");
+            this.AddStyleSheetPathWithUnityVersion("VFXFlowEdge");
 
             edgeControl.inputOrientation = Orientation.Vertical;
             edgeControl.outputOrientation = Orientation.Vertical;

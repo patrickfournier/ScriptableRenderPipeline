@@ -210,8 +210,8 @@ namespace UnityEditor.VFX.UI
         {
             capabilities |= Capabilities.Selectable | Capabilities.Movable | Capabilities.Deletable | Capabilities.Ascendable;
 
-            AddStyleSheetPath("VFXContext");
-            AddStyleSheetPath("Selectable");
+            this.AddStyleSheetPathWithUnityVersion("VFXContext");
+            this.AddStyleSheetPathWithUnityVersion("Selectable");
 
             AddToClassList("VFXContext");
             AddToClassList("selectable");
