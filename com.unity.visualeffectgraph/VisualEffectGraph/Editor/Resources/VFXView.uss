@@ -37,6 +37,7 @@ Button.toolbarItem
     -unity-slice-left:6;
     -unity-slice-right:6;
     height:17;
+    flex-basis: 75px;
     margin-left:0;
     margin-right:0;
     margin-bottom:0;
@@ -60,33 +61,49 @@ Toggle.toolbarItem
     margin-top:0;
     padding-top:0;
     padding-bottom:0;
-    padding-left:12;
-    padding-right:12;
+    padding-left:0;
+    padding-right:0;
 }
 
-Toggle.toolbarItem > #Checkmark,Toggle.toolbarItem:checked > #Checkmark,Toggle.toolbarItem:hover:active > #Checkmark,Toggle.toolbarItem:hover:active:checked > #Checkmark
+Toggle.toolbarItem .unity-base-field__input {
+    flex: 1 0 auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 12;
+    padding-right:12;
+    padding-bottom: 0;
+    padding-top: 0;
+    -unity-slice-left:1;
+    -unity-slice-right:1;
+    -unity-slice-top:1;
+    -unity-slice-bottom:1;
+}
+
+Toggle.toolbarItem #unity-checkmark
 {
     background-image:none;
     width:0;
 }
 
-Toggle.toolbarItem > Label.textElement
+Toggle.toolbarItem .unity-base-field__input > Label.textElement
 {
     margin-left:0;
     -unity-text-align:middle-center;
 }
 
-Toggle.toolbarItem:hover:active
+Toggle.toolbarItem:hover:active .unity-base-field__input
 {
     background-image: resource("Builtin Skins/DarkSkin/Images/toolbar button act.png");
 }
 
-Toggle.toolbarItem:checked
+Toggle.toolbarItem .unity-base-field__input:checked
 {
     background-image: resource("Builtin Skins/DarkSkin/Images/toolbar button on.png");
 }
 
-Toggle.toolbarItem:checked:hover:active
+Toggle.toolbarItem:hover:active .unity-base-field__input:checked
 {
     background-image: resource("Builtin Skins/DarkSkin/Images/toolbar button act on.png");
 }
