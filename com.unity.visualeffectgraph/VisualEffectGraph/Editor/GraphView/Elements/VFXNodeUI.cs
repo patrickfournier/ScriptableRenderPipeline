@@ -155,7 +155,7 @@ namespace UnityEditor.VFX.UI
             this.AddStyleSheetPathWithUnityVersion("VFXNode");
             AddToClassList("VFXNodeUI");
 #if UNITY_2019_1_OR_NEWER
-            clippingOption = ClippingOption.ClipContents;
+            style.overflow = Overflow.Hidden;
 #else
             clippingOptions = ClippingOptions.ClipContents;
 #endif

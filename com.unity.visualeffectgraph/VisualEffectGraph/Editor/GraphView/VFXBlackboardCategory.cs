@@ -277,7 +277,14 @@ namespace UnityEditor.VFX.UI
 
                 SetDragIndicatorVisible(true);
 
-                m_DragIndicator.layout = new Rect(0, indicatorY - m_DragIndicator.layout.height / 2, layout.width, m_DragIndicator.layout.height);
+                Rect dragLayout = m_DragIndicator.layout;
+
+#if UNITY_2019_1_OR_NEWER
+                m_DragIndicator.style.left = 0f;
+                m_DragIndicator.style.top = indicatorY - dragLayout.height / 2;
+#else
+                m_DragIndicator.layout = new Rect(0, indicatorY - dragLayout.height / 2, dragLayout.width, dragLayout.height);
+#endif
             }
             else
             {
