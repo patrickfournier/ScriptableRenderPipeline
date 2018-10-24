@@ -141,8 +141,6 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
 
         int                         m_MaxShadowRequests;
         int                         m_ShadowRequestCount;
-        Material                    m_ClearMaterial;
-        DepthBits                   m_DepthBits;
         int                         m_CascadeCount;
 
         public HDShadowManager(int width, int height, int maxShadowRequests, DepthBits atlasDepthBits, Shader clearShader)
@@ -163,8 +161,6 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
             m_DirectionalShadowDataBuffer = new ComputeBuffer(1, System.Runtime.InteropServices.Marshal.SizeOf(typeof(HDDirectionalShadowData)));
 
             m_MaxShadowRequests = maxShadowRequests;
-            m_ClearMaterial = clearMaterial;
-            m_DepthBits = atlasDepthBits;
         }
 
         public void UpdateDirectionalShadowResolution(int resolution, int cascadeCount)
@@ -182,7 +178,10 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
         public int ReserveShadowResolutions(Vector2 resolution, bool allowResize)
         {
             if (m_ShadowRequestCount >= m_MaxShadowRequests)
+            {
+                Debug.LogWarning("Max shadow requests count reached, dropping all exceeding requests. You can increase this limit by changing the max requests in the HDRP asset");
                 return -1;
+            }
 
             HDShadowResolutionRequest   resolutionRequest = new HDShadowResolutionRequest{
                 resolution = resolution,
@@ -304,7 +303,7 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
             m_Atlas.Layout();
         }
 
-        unsafe public void PrepareGPUShadowDatas(CullResults cullResults, Camera camera)
+        unsafe public void PrepareGPUShadowDatas(CullingResults cullResults, Camera camera)
         {
             int shadowIndex = 0;
 
@@ -339,14 +338,14 @@ namespace UnityEngine.Experimental.Rendering.HDPipeline
             m_DirectionalShadowData.cascadeDirection.w = k_DirectionalShadowCascadeCount;
         }
 
-        public void RenderShadows(ScriptableRenderContext renderContext, CommandBuffer cmd, CullResults cullResults)
+        public void RenderShadows(ScriptableRenderContext renderContext, CommandBuffer cmd, CullingResults cullResults)
         {
             // Avoid to do any commands if there is no shadow to draw
             if (m_ShadowRequestCount == 0)
                 return ;
 
             // TODO remove DrawShadowSettings, lightIndex and splitData when scriptable culling is available
-            DrawShadowsSettings dss = new DrawShadowsSettings(cullResults, 0);
+            ShadowDrawingSettings dss = new ShadowDrawingSettings(cullResults, 0);
 
             // Clear atlas render targets and draw shadows
             m_Atlas.RenderShadows(renderContext, cmd, dss);
