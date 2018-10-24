@@ -676,6 +676,12 @@ namespace UnityEditor.Experimental.Rendering.HDPipeline
                 activeFields.Add("Decals");
             }
 
+            if (!masterNode.receiveDecals.isOn)
+            {
+                activeFields.Add("DisableSSR");
+            }
+
+
             if (masterNode.specularAA.isOn && pass.PixelShaderUsesSlot(HDLitMasterNode.SpecularAAThresholdSlotId) && pass.PixelShaderUsesSlot(HDLitMasterNode.SpecularAAScreenSpaceVarianceSlotId))
             {
                 activeFields.Add("Specular.AA");
