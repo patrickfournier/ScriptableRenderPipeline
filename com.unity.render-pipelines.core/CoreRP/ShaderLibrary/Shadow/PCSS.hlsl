@@ -89,6 +89,7 @@ bool BlockerSearch(inout real averageBlockerDepth, inout real numBlockers, real 
             numBlockers += 1.0;
         }
     }
+
     averageBlockerDepth = blockerSum / numBlockers;
 
     return numBlockers >= 1;
@@ -110,6 +111,7 @@ bool BlockerSearch(inout real averageBlockerDepth, inout real numBlockers, real 
             numBlockers += 1.0;
         }
     }
+
     averageBlockerDepth = blockerSum / numBlockers;
 
     return numBlockers >= 1;
