@@ -134,7 +134,7 @@ namespace UnityEngine.Experimental.Rendering.LightweightPipeline
 
             bool resolveShadowsInScreenSpace = mainLightShadows && renderingData.shadowData.requiresScreenSpaceShadowResolve;
             bool requiresDepthPrepass = resolveShadowsInScreenSpace || renderingData.cameraData.isSceneViewCamera ||
-                                        (renderingData.cameraData.requiresDepthTexture && (!CanCopyDepth(ref renderingData.cameraData) || renderingData.cameraData.isOffscreenRender));
+                                        (renderingData.cameraData.requiresDepthTexture && (!CanCopyDepth(ref renderingData.cameraData)));
 
             // For now VR requires a depth prepass until we figure out how to properly resolve texture2DMS in stereo
             requiresDepthPrepass |= renderingData.cameraData.isStereoEnabled;
