@@ -25,6 +25,9 @@ namespace UnityEngine.TestTools.Graphics
         /// <param name="settings">Optional settings that control how the image comparison is performed. Can be null, in which case the rendered image is required to be exactly identical to the reference.</param>
         public static void AreEqual(Texture2D expected, Camera camera, ImageComparisonSettings settings = null)
         {
+            if (camera == null)
+                throw new ArgumentNullException(nameof(camera));
+
             AreEqual(expected, new List<Camera>{camera}, settings);
         }
 
