@@ -500,8 +500,8 @@ namespace UnityEditor.Experimental.Rendering.HDPipeline
                     "// Stencil setup",
                     "Stencil",
                     "{",
-                    "   WriteMask 7",
-                        masterNode.RequiresSplitLighting() ? "   Ref  1" : "   Ref  2",
+                    "   WriteMask " + masterNode.GetStencilWriteMask().ToString(),
+                    "   Ref  " + masterNode.GetStencilRef().ToString(),
                     "   Comp Always",
                     "   Pass Replace",
                     "}"
