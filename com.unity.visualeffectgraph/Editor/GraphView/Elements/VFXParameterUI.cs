@@ -83,7 +83,7 @@ namespace UnityEditor.VFX.UI
         {
             RemoveFromClassList("VFXNodeUI");
             styleSheets.Add(Resources.Load<StyleSheet>("VFXParameter"));
-            styleSheets.Add(Resources.Load<StyleSheet>("StyleSheets/GraphView/Node.uss"));
+            styleSheets.Add(EditorGUIUtility.Load("StyleSheets/GraphView/Node.uss") as StyleSheet);
 
             RegisterCallback<MouseEnterEvent>(OnMouseHover);
             RegisterCallback<MouseLeaveEvent>(OnMouseHover);

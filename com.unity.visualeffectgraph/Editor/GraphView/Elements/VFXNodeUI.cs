@@ -90,7 +90,7 @@ namespace UnityEditor.VFX.UI
 
         public VFXNodeUI() : base(UXMLResourceToPackage("uxml/VFXNode"))
         {
-            this.AddStyleSheetPath("StyleSheets/GraphView/Node.uss");
+            styleSheets.Add(EditorGUIUtility.Load("StyleSheets/GraphView/Node.uss") as StyleSheet);
             Initialize();
         }
 
