@@ -1,49 +1,38 @@
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace UnityEditor.VFX.UI
 {
     partial class VFXEditableDataAnchor : VFXDataAnchor
     {
-        const string SelectedFieldBackgroundProperty = "selected-field-background";
-        const string IMBorderProperty = "im-border";
-        const string IMPaddingProperty = "im-padding";
+        readonly CustomStyleProperty<Texture2D> SelectedFieldBackgroundProperty = new CustomStyleProperty<Texture2D>("--selected-field-background");
+        readonly CustomStyleProperty<int> IMBorderProperty = new CustomStyleProperty<int>("--im-border");
+        readonly CustomStyleProperty<int> IMPaddingProperty = new CustomStyleProperty<int>("--im-padding");
 
-
-        StyleValue<Texture2D> m_SelectedFieldBackground;
-        StyleValue<int> m_IMBorder;
-        StyleValue<int> m_IMPadding;
+        Texture2D m_SelectedFieldBackground;
+        int m_IMBorder;
+        int m_IMPadding;
         public Texture2D selectedFieldBackground
         {
-            get
-            {
-                return m_SelectedFieldBackground.GetSpecifiedValueOrDefault(null);
-            }
+            get { return m_SelectedFieldBackground; }
         }
 
         public int IMBorder
         {
-            get
-            {
-                return m_IMBorder.GetSpecifiedValueOrDefault(0);
-            }
+            get { return m_IMBorder; }
         }
 
         public int IMPadding
         {
-            get
-            {
-                return m_IMPadding.GetSpecifiedValueOrDefault(0);
-            }
+            get { return m_IMPadding; }
         }
 
-        protected override void OnStyleResolved(ICustomStyle styles)
+        protected override void OnCustomStyleResolved(ICustomStyle styles)
         {
-            base.OnStyleResolved(styles);
-
-            styles.ApplyCustomProperty(SelectedFieldBackgroundProperty, ref m_SelectedFieldBackground);
-            styles.ApplyCustomProperty(IMBorderProperty, ref m_IMBorder);
-            styles.ApplyCustomProperty(IMPaddingProperty, ref m_IMPadding);
+            styles.TryGetValue(SelectedFieldBackgroundProperty, out m_SelectedFieldBackground);
+            styles.TryGetValue(IMBorderProperty, out m_IMBorder);
+            styles.TryGetValue(IMPaddingProperty, out m_IMPadding);
             /*
             if (m_GUIStyles != null)
             {

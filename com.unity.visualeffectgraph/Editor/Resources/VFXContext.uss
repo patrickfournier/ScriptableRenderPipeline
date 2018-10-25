@@ -38,22 +38,22 @@ VFXContextUI > #node-border.empty > #inside > #contents
 
 VFXContextUI.outputTypenone > #node-border
 {
-    end-color:#C24F30;
+    --end-color:#C24F30;
 }
 
 
 VFXContextUI.inputTypeparticle > #node-border
 {
-start-color:#BF9220;
+    --start-color:#BF9220;
 }
 VFXContextUI.outputTypeparticle > #node-border
 {
-    end-color:#BF9220;
+    --end-color:#BF9220;
 }
 
 VFXFlowAnchor.port.EdgeConnector.typeparticle
 {
-    port-color: #FFBC21;
+    --port-color: #FFBC21;
 }
 
 /*  output */
@@ -61,29 +61,29 @@ VFXFlowAnchor.port.EdgeConnector.typeparticle
 
 VFXContextUI.typemesh  > #node-border
 {
-    start-color: #3b5e92;
-    end-color: #3b5e92;
+    --start-color: #3b5e92;
+    --end-color: #3b5e92;
 }
 
 VFXFlowAnchor.port.EdgeConnector.typemesh
 {
-    port-color: #0763eb;
+    --port-color: #0763eb;
 }
 
 /* spawner */
 
 VFXContextUI.inputTypespawnevent  > #node-border,VFXContextUI.inputTypeevent  > #node-border
 {
-    start-color: #17AB6A;
+    --start-color: #17AB6A;
 }
 VFXContextUI.outputTypespawnevent  > #node-border,VFXContextUI.outputTypeevent  > #node-border
 {
-    end-color: #17AB6A;
+    --end-color: #17AB6A;
 }
 
 VFXFlowAnchor.port.EdgeConnector.typespawnevent, VFXFlowAnchor.port.EdgeConnector.typeevent
 {
-    port-color: #00ff8f;
+    --port-color: #00ff8f;
 }
 
 /* event */

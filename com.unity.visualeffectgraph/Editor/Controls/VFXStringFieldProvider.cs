@@ -20,7 +20,7 @@ namespace UnityEditor.VFX.UIElements
         {
             m_DropDownButton = new Label();
             m_DropDownButton.AddToClassList("PopupButton");
-            m_DropDownButton.AddManipulator(new DownClickable(OnClick));
+            m_DropDownButton.AddManipulator(new Clickable(OnClick));
         }
 
         void OnClick()

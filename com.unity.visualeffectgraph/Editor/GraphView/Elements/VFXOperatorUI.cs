@@ -17,7 +17,7 @@ namespace UnityEditor.VFX.UI
 
         public VFXOperatorUI()
         {
-            AddStyleSheetPath("VFXOperator");
+            this.AddStyleSheetPath("VFXOperator");
 
             m_Middle = new VisualElement();
             m_Middle.name = "middle";
@@ -131,12 +131,12 @@ namespace UnityEditor.VFX.UI
         {
             if (evt.target == this && controller != null && controller.model is VFXInlineOperator)
             {
-                evt.menu.AppendAction("Convert to Parameter", OnConvertToParameter, e => DropdownMenu.MenuAction.StatusFlags.Normal);
+                evt.menu.AppendAction("Convert to Parameter", OnConvertToParameter, e => DropdownMenuAction.Status.Normal);
                 evt.menu.AppendSeparator();
             }
         }
 
-        void OnConvertToParameter(DropdownMenu.MenuAction evt)
+        void OnConvertToParameter(DropdownMenuAction evt)
         {
             controller.ConvertToParameter();
         }

@@ -6,6 +6,8 @@ using Type = System.Type;
 using System.Linq;
 using UnityEngine.Profiling;
 
+using PositionType = UnityEngine.UIElements.Position;
+
 namespace UnityEditor.VFX.UI
 {
     class VFXDataAnchor : Port, IControlledElement<VFXDataAnchorController>, IEdgeConnectorListener
@@ -44,17 +46,17 @@ namespace UnityEditor.VFX.UI
         protected VFXDataAnchor(Orientation anchorOrientation, Direction anchorDirection, Type type, VFXNodeUI node) : base(anchorOrientation, anchorDirection, Capacity.Multi, type)
         {
             Profiler.BeginSample("VFXDataAnchor.VFXDataAnchor");
-            AddStyleSheetPath("VFXDataAnchor");
+            this.AddStyleSheetPath("VFXDataAnchor");
             AddToClassList("VFXDataAnchor");
-            AddStyleSheetPath("VFXTypeColor");
+            this.AddStyleSheetPath("VFXTypeColor");
 
             m_ConnectorHighlight = new VisualElement();
 
-            m_ConnectorHighlight.style.positionType = PositionType.Absolute;
-            m_ConnectorHighlight.style.positionTop = 0;
-            m_ConnectorHighlight.style.positionLeft = 0;
-            m_ConnectorHighlight.style.positionBottom = 0;
-            m_ConnectorHighlight.style.positionRight = 0;
+            m_ConnectorHighlight.style.position = PositionType.Absolute;
+            m_ConnectorHighlight.style.top = 0;
+            m_ConnectorHighlight.style.left = 0;
+            m_ConnectorHighlight.style.bottom = 0;
+            m_ConnectorHighlight.style.right = 0;
             m_ConnectorHighlight.pickingMode = PickingMode.Ignore;
 
             VisualElement connector = m_ConnectorBox as VisualElement;
@@ -75,10 +77,10 @@ namespace UnityEditor.VFX.UI
             var op = controller.sourceNode.model as VFXOperatorNumericCascadedUnified;
 
             if (op != null)
-                evt.menu.AppendAction("Remove Slot", OnRemove, e => op.operandCount > 2 ? DropdownMenu.MenuAction.StatusFlags.Normal : DropdownMenu.MenuAction.StatusFlags.Disabled);
+                evt.menu.AppendAction("Remove Slot", OnRemove, e => op.operandCount > 2 ? DropdownMenuAction.Status.Normal : DropdownMenuAction.Status.Disabled);
         }
 
-        void OnRemove(DropdownMenu.MenuAction e)
+        void OnRemove(DropdownMenuAction e)
         {
             var op = controller.sourceNode as VFXCascadedOperatorController;
 
@@ -149,15 +151,6 @@ namespace UnityEditor.VFX.UI
             if (result == null)
                 return Resources.Load<Texture2D>("VFX/Default" + suffix);
             return result;
-        }
-
-        const string AnchorColorProperty = "anchor-color";
-        StyleValue<Color> m_AnchorColor;
-
-
-        protected override void OnStyleResolved(ICustomStyle styles)
-        {
-            base.OnStyleResolved(styles);
         }
 
         IEnumerable<VFXDataEdge> GetAllEdges()

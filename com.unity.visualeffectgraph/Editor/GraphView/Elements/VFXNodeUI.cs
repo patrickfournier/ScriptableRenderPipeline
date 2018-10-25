@@ -7,6 +7,8 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.Profiling;
 
+using PositionType = UnityEngine.UIElements.Position;
+
 namespace UnityEditor.VFX.UI
 {
     class VFXNodeUI : Node, IControlledElement, ISettableControlledElement<VFXNodeController>, IVFXMovable
@@ -43,7 +45,7 @@ namespace UnityEditor.VFX.UI
         protected virtual void OnNewController()
         {
             if (controller != null)
-                persistenceKey = string.Format("NodeID-{0}", controller.model.GetInstanceID());
+                viewDataKey = string.Format("NodeID-{0}", controller.model.GetInstanceID());
         }
 
         public void OnSelectionMouseDown(MouseDownEvent e)
@@ -88,7 +90,7 @@ namespace UnityEditor.VFX.UI
 
         public VFXNodeUI() : base(UXMLResourceToPackage("uxml/VFXNode"))
         {
-            AddStyleSheetPath("StyleSheets/GraphView/Node.uss");
+            this.AddStyleSheetPath("StyleSheets/GraphView/Node.uss");
             Initialize();
         }
 
@@ -143,9 +145,9 @@ namespace UnityEditor.VFX.UI
 
         void Initialize()
         {
-            AddStyleSheetPath("VFXNode");
+            this.AddStyleSheetPath("VFXNode");
             AddToClassList("VFXNodeUI");
-            clippingOptions = ClippingOptions.ClipContents;
+            cacheAsBitmap = true;
 
             RegisterCallback<MouseEnterEvent>(OnMouseEnter);
             RegisterCallback<MouseLeaveEvent>(OnMouseLeave);
@@ -329,9 +331,9 @@ namespace UnityEditor.VFX.UI
 
             if (HasPosition())
             {
-                style.positionType = PositionType.Absolute;
-                style.positionLeft = controller.position.x;
-                style.positionTop = controller.position.y;
+                style.position = PositionType.Absolute;
+                style.left = controller.position.x;
+                style.top = controller.position.y;
             }
 
             base.expanded = controller.expanded;
@@ -386,7 +388,7 @@ namespace UnityEditor.VFX.UI
         {
             if (input)
             {
-                foreach (var child in inputContainer)
+                foreach (var child in inputContainer.Children())
                 {
                     if (child is VFXDataAnchor)
                         yield return child as VFXDataAnchor;
@@ -394,7 +396,7 @@ namespace UnityEditor.VFX.UI
             }
             if (output)
             {
-                foreach (var child in outputContainer)
+                foreach (var child in outputContainer.Children())
                 {
                     if (child is VFXDataAnchor)
                         yield return child as VFXDataAnchor;

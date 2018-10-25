@@ -12,6 +12,8 @@ using UnityEngine.UIElements;
 using UnityEngine.Profiling;
 using System.Reflection;
 
+using PositionType = UnityEngine.UIElements.Position;
+
 namespace UnityEditor.VFX.UI
 {
     class VFXView : GraphView, IDropTarget, IControlledElement<VFXViewController>, IControllerListener
@@ -194,13 +196,13 @@ namespace UnityEditor.VFX.UI
             this.AddManipulator(new RectangleSelector());
             this.AddManipulator(new FreehandSelector());
 
-            AddStyleSheetPath("VFXView");
+            styleSheets.Add(Resources.Load<StyleSheet>("VFXView"));
 
             AddLayer(-1);
             AddLayer(1);
             AddLayer(2);
 
-            focusIndex = 0;
+            focusable = true;
 
             m_Toolbar = new VisualElement();
             m_Toolbar.AddToClassList("toolbar");
@@ -233,7 +235,7 @@ namespace UnityEditor.VFX.UI
 
 
             spacer = new VisualElement();
-            spacer.style.flex = new Flex(1);
+            spacer.style.flexGrow = 1f;
             m_Toolbar.Add(spacer);
 
             Toggle toggleRuntimeMode = new Toggle();
@@ -257,11 +259,11 @@ namespace UnityEditor.VFX.UI
 
 
             m_NoAssetLabel = new Label("Please Select An Asset");
-            m_NoAssetLabel.style.positionType = PositionType.Absolute;
-            m_NoAssetLabel.style.positionLeft = 0;
-            m_NoAssetLabel.style.positionRight = 0;
-            m_NoAssetLabel.style.positionTop = 0;
-            m_NoAssetLabel.style.positionBottom = 0;
+            m_NoAssetLabel.style.position = PositionType.Absolute;
+            m_NoAssetLabel.style.left = 0;
+            m_NoAssetLabel.style.right = 0;
+            m_NoAssetLabel.style.top = 0;
+            m_NoAssetLabel.style.bottom = 0;
             m_NoAssetLabel.style.unityTextAlign = TextAnchor.MiddleCenter;
             m_NoAssetLabel.style.fontSize = 72;
             m_NoAssetLabel.style.color = Color.white * 0.75f;
@@ -295,8 +297,7 @@ namespace UnityEditor.VFX.UI
 
             Undo.undoRedoPerformed = OnUndoPerformed;
 
-            persistenceKey = "VFXView";
-
+            viewDataKey = "VFXView";
 
             RegisterCallback<GeometryChangedEvent>(OnFirstResize);
         }
@@ -322,7 +323,7 @@ namespace UnityEditor.VFX.UI
                 Insert(childCount - 1, m_Blackboard);
                 BoardPreferenceHelper.SetVisible(BoardPreferenceHelper.Board.blackboard, true);
                 m_Blackboard.RegisterCallback<GeometryChangedEvent>(OnFirstBlackboardGeometryChanged);
-                m_Blackboard.style.positionType = PositionType.Absolute;
+                m_Blackboard.style.position = PositionType.Absolute;
             }
             else
             {
@@ -493,12 +494,6 @@ namespace UnityEditor.VFX.UI
             Profiler.EndSample();
         }
 
-        public override void OnPersistentDataReady()
-        {
-            // warning : default could messes with view restoration from the VFXViewWindow (TODO : check this)
-            base.OnPersistentDataReady();
-        }
-
         void NewControllerSet()
         {
             m_Blackboard.controller = controller;
@@ -662,7 +657,7 @@ namespace UnityEditor.VFX.UI
         {
             if (graphElement.IsResizable())
             {
-                graphElement.shadow.Add(new Resizer());
+                graphElement.hierarchy.Add(new Resizer());
                 graphElement.style.borderBottomWidth = 6;
             }
 
@@ -1019,7 +1014,7 @@ namespace UnityEditor.VFX.UI
         {
             foreach (var layer in contentViewContainer.Children())
             {
-                foreach (var element in layer)
+                foreach (var element in layer.Children())
                 {
                     if (element is VFXContextUI)
                     {
@@ -1033,7 +1028,7 @@ namespace UnityEditor.VFX.UI
         {
             foreach (var layer in contentViewContainer.Children())
             {
-                foreach (var element in layer)
+                foreach (var element in layer.Children())
                 {
                     if (element is VFXNodeUI)
                     {
@@ -1170,7 +1165,7 @@ namespace UnityEditor.VFX.UI
         {
             foreach (var layer in contentViewContainer.Children())
             {
-                foreach (var element in layer)
+                foreach (var element in layer.Children())
                 {
                     if (element is VFXNodeUI)
                     {
@@ -1196,7 +1191,7 @@ namespace UnityEditor.VFX.UI
         {
             foreach (var layer in contentViewContainer.Children())
             {
-                foreach (var element in layer)
+                foreach (var element in layer.Children())
                 {
                     if (element is VFXDataEdge)
                     {
@@ -1213,7 +1208,7 @@ namespace UnityEditor.VFX.UI
         {
             foreach (var layer in contentViewContainer.Children())
             {
-                foreach (var element in layer)
+                foreach (var element in layer.Children())
                 {
                     if (element is VFXDataEdge)
                     {
@@ -1517,7 +1512,7 @@ namespace UnityEditor.VFX.UI
             controller.AddStickyNote(position, group != null ? group.controller : null);
         }
 
-        void OnCreateNodeInGroupNode(DropdownMenu.MenuAction e)
+        void OnCreateNodeInGroupNode(DropdownMenuAction e)
         {
             //The targeted groupnode will be determined by a PickAll later
             VFXFilterWindow.Show(VFXViewWindow.currentWindow, e.eventInfo.mousePosition, ViewToScreenPosition(e.eventInfo.mousePosition), m_NodeProvider);
@@ -1532,13 +1527,13 @@ namespace UnityEditor.VFX.UI
             if (evt.target is VFXNodeUI)
             {
                 evt.menu.AppendAction("Group Selection", (e) => { GroupSelection(); },
-                    (e) => { return canGroupSelection ? DropdownMenu.MenuAction.StatusFlags.Normal : DropdownMenu.MenuAction.StatusFlags.Disabled; });
+                    (e) => { return canGroupSelection ? DropdownMenuAction.Status.Normal : DropdownMenuAction.Status.Disabled; });
                 hasMenu = true;
             }
             if (evt.target is VFXView)
             {
                 evt.menu.AppendAction("New Sticky Note", (e) => { AddStickyNote(mousePosition); },
-                    (e) => { return DropdownMenu.MenuAction.StatusFlags.Normal; });
+                    (e) => { return DropdownMenuAction.Status.Normal; });
                 hasMenu = true;
             }
             if (hasMenu)
@@ -1546,18 +1541,18 @@ namespace UnityEditor.VFX.UI
             if (evt.target is VFXContextUI)
             {
                 evt.menu.AppendAction("Cut", (e) => { CutSelectionCallback(); },
-                    (e) => { return canCutSelection ? DropdownMenu.MenuAction.StatusFlags.Normal : DropdownMenu.MenuAction.StatusFlags.Disabled; });
+                    (e) => { return canCutSelection ? DropdownMenuAction.Status.Normal : DropdownMenuAction.Status.Disabled; });
                 evt.menu.AppendAction("Copy", (e) => { CopySelectionCallback(); },
-                    (e) => { return canCopySelection ? DropdownMenu.MenuAction.StatusFlags.Normal : DropdownMenu.MenuAction.StatusFlags.Disabled; });
+                    (e) => { return canCopySelection ? DropdownMenuAction.Status.Normal : DropdownMenuAction.Status.Disabled; });
             }
 
             if (evt.target is VFXGroupNode)
             {
                 VFXGroupNode group = evt.target as VFXGroupNode;
-                evt.menu.InsertAction(0, "Create Node", OnCreateNodeInGroupNode, e => DropdownMenu.MenuAction.StatusFlags.Normal);
+                evt.menu.InsertAction(0, "Create Node", OnCreateNodeInGroupNode, e => DropdownMenuAction.Status.Normal);
 
                 evt.menu.AppendAction("New Sticky Note", (e) => { AddStickyNote(mousePosition, group); },
-                    (e) => { return DropdownMenu.MenuAction.StatusFlags.Normal; });
+                    (e) => { return DropdownMenuAction.Status.Normal; });
                 hasMenu = true;
                 evt.menu.AppendSeparator();
             }

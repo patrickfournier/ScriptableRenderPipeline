@@ -28,7 +28,7 @@ namespace  UnityEditor.VFX.UI
                 button.clickable.clicked += OnExpand;
             }
 
-            clippingOptions = ClippingOptions.ClipAndCacheContents;
+            cacheAsBitmap = true;
         }
 
         void OnExpand()

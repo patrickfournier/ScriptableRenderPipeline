@@ -68,9 +68,9 @@ namespace UnityEditor.VFX.UI
 
             s_m_TextureDirty.SetValue(this, true);
 
-            if (value != null && CurveEditorWindow.visible && Object.ReferenceEquals(CurveEditorWindow.curve, m_Value))
+            if (value != null && CurveEditorWindow.visible && Object.ReferenceEquals(CurveEditorWindow.curve, value))
             {
-                CurveEditorWindow.curve = m_Value;
+                CurveEditorWindow.curve = value;
                 CurveEditorWindow.instance.Repaint();
             }
             MarkDirtyRepaint();
@@ -90,7 +90,8 @@ namespace UnityEditor.VFX.UI
 
             m_CurveField.style.flexDirection = FlexDirection.Column;
             m_CurveField.style.alignItems = Align.Stretch;
-            m_CurveField.style.flex = new Flex(1, 0);
+            m_CurveField.style.flexGrow = 1f;
+            m_CurveField.style.flexShrink = 0f;
 
             Add(m_CurveField);
         }
