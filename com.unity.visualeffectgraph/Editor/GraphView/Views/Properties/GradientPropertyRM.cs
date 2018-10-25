@@ -1,15 +1,14 @@
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
-using UnityEngine.Experimental.UIElements;
-using UnityEngine.Experimental.UIElements.StyleEnums;
-using UnityEditor.Experimental.UIElements;
+using UnityEngine.UIElements;
+using UnityEditor.UIElements;
 using UnityEditor.VFX;
 using UnityEditor.VFX.UIElements;
 using Object = UnityEngine.Object;
 using Type = System.Type;
 
-using GradientField = UnityEditor.VFX.UIElements.VFXLabeledField<UnityEditor.Experimental.UIElements.GradientField, UnityEngine.Gradient>;
+using GradientField = UnityEditor.VFX.UIElements.VFXLabeledField<UnityEditor.UIElements.GradientField, UnityEngine.Gradient>;
 
 namespace UnityEditor.VFX.UI
 {

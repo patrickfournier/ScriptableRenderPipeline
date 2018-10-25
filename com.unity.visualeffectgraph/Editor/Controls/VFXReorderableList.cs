@@ -1,7 +1,6 @@
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Experimental.UIElements;
-using UnityEngine.Experimental.UIElements.StyleEnums;
+using UnityEngine.UIElements;
 
 namespace UnityEditor.VFX.UI
 {

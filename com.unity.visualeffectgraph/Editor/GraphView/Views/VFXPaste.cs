@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.UIElements;
+using UnityEngine.UIElements;
 
 using NodeID = System.UInt32;
 
@@ -309,7 +309,7 @@ namespace UnityEditor.VFX.UI
             SelectStickyNotes(view, elements);
         }
 
-        private void SelectGroupNodes(VFXView view, List<Experimental.UIElements.GraphView.GraphElement> elements)
+        private void SelectGroupNodes(VFXView view, List<UIElements.GraphView.GraphElement> elements)
         {
             if (firstCopiedGroup >= 0)
             {
@@ -328,7 +328,7 @@ namespace UnityEditor.VFX.UI
             }
         }
 
-        private void SelectStickyNotes(VFXView view, List<Experimental.UIElements.GraphView.GraphElement> elements)
+        private void SelectStickyNotes(VFXView view, List<UIElements.GraphView.GraphElement> elements)
         {
             //Select all groups that are new
             if (firstCopiedStickyNote >= 0)
@@ -343,7 +343,7 @@ namespace UnityEditor.VFX.UI
             }
         }
 
-        private void SelectEdges(VFXView view, List<Experimental.UIElements.GraphView.GraphElement> elements)
+        private void SelectEdges(VFXView view, List<UIElements.GraphView.GraphElement> elements)
         {
             // Simply selected all data edge with the context or slot container, they can be no other than the copied ones
             foreach (var dataEdge in elements.OfType<VFXDataEdge>())
@@ -363,7 +363,7 @@ namespace UnityEditor.VFX.UI
             }
         }
 
-        private void FindParameterUIsAndSelect(VFXView view, List<Experimental.UIElements.GraphView.GraphElement> elements)
+        private void FindParameterUIsAndSelect(VFXView view, List<UIElements.GraphView.GraphElement> elements)
         {
             foreach (var param in newControllers.Values.OfType<VFXParameterNodeController>())
             {
@@ -375,7 +375,7 @@ namespace UnityEditor.VFX.UI
             }
         }
 
-        private void FindOperatorsUIsAndSelect(VFXView view, List<Experimental.UIElements.GraphView.GraphElement> elements)
+        private void FindOperatorsUIsAndSelect(VFXView view, List<UIElements.GraphView.GraphElement> elements)
         {
             foreach (var slotContainer in newControllers.Values.OfType<VFXOperatorController>())
             {
@@ -388,7 +388,7 @@ namespace UnityEditor.VFX.UI
             }
         }
 
-        private void FindContextUIsAndSelect(VFXView view, List<Experimental.UIElements.GraphView.GraphElement> elements)
+        private void FindContextUIsAndSelect(VFXView view, List<UIElements.GraphView.GraphElement> elements)
         {
             foreach (var slotContainer in newContexts.Select(t => t.Key).OfType<VFXContext>())
             {
