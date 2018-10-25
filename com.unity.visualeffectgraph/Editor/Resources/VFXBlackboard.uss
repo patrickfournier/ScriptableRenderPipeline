@@ -22,28 +22,28 @@ VFXBlackboardRow.hovered #pill #selection-border
     border-top-width:2;
     border-right-width:2;
     border-bottom-width:2;
-    position-left:1;
-    position-right:1;
-    position-top:1;
-    position-bottom:1;
+    left:1;
+    right:1;
+    top:1;
+    bottom:1;
 }
 
 
 .blackboard > #dragIndicator {
     background-color: #44C0FF;
     min-height: 4;
-    position-left:0;
-    position-right:0;
+    left:0;
+    right:0;
 }
 
 
 VFXBlackboardCategory #name-field
 {
-    position-type:absolute;
-    position-left:0;
-    position-right:0;
-    position-top:0;
-    position-bottom:0;
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
 }
 
 #expandButton {
@@ -64,13 +64,13 @@ VFXBlackboardCategory #name-field
 }
 
 #expandButton > #buttonImage {
-    image : resource("GraphView/Nodes/NodeChevronRight.png");
+    --unity-image : resource("GraphView/Nodes/NodeChevronRight.png");
     width: 12;
     height: 12;
 }
 
 VFXBlackboardCategory.expanded #expandButton > #buttonImage {
-    image : resource("GraphView/Nodes/NodeChevronDown.png");
+    --unity-image : resource("GraphView/Nodes/NodeChevronDown.png");
 }
 
 VFXBlackboardCategory > .mainContainer > #rowsContainer

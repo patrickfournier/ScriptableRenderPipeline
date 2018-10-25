@@ -44,7 +44,6 @@ namespace UnityEditor.VFX.UI
 
 
         static FieldInfo s_m_ValueNull = typeof(CurveField).GetField("m_ValueNull", BindingFlags.NonPublic | BindingFlags.FlattenHierarchy | BindingFlags.Instance);
-        static FieldInfo s_m_Value = typeof(CurveField).GetField("m_Value", BindingFlags.NonPublic | BindingFlags.FlattenHierarchy | BindingFlags.Instance);
         static FieldInfo s_m_TextureDirty = typeof(CurveField).GetField("m_TextureDirty", BindingFlags.NonPublic | BindingFlags.FlattenHierarchy | BindingFlags.Instance);
         static FieldInfo s_m_Content = typeof(CurveField).GetField("m_Content", BindingFlags.NonPublic | BindingFlags.FlattenHierarchy | BindingFlags.Instance);
 
@@ -52,7 +51,7 @@ namespace UnityEditor.VFX.UI
         {
             s_m_ValueNull.SetValue(this, newValue == null);
 
-            AnimationCurve mValue = (AnimationCurve)s_m_Value.GetValue(this);
+            AnimationCurve mValue = rawValue;
             if (newValue != null)
             {
                 mValue.keys = newValue.keys;
