@@ -78,7 +78,7 @@ VFXOperatorUI.superCollapsed.VFXNodeUI.node .mainContainer > #middle
 
 VFXOperatorUI.superCollapsed.VFXNodeUI.node #settings-divider, VFXOperatorUI.superCollapsed.VFXNodeUI.node #divider
 {
-    border-bottom:0;
+    border-bottom-width:0;
     height:0;
 }
 
@@ -144,7 +144,7 @@ width:-1;
 .VFXNodeUI.superCollapsed #contents > #top > #divider
 {
     width:0;
-    border-right:0;
+    border-right-width:0;
 }
 .VFXNodeUI.superCollapsed #contents > #top > #middle
 {

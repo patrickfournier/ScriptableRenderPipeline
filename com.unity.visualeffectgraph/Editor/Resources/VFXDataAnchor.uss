@@ -10,7 +10,7 @@
 {
     flex-direction: row;
     align-items: center;
-    font-style: normal;
+    -unity-font-style: normal;
     color: #BBB;
     font-size:11;
     padding-bottom:0;

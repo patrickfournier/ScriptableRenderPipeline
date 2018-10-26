@@ -164,8 +164,8 @@ VFXComponentBoardEventUI Button, #on-play-button, #on-stop-button,#attach, #sele
 #play-rate-container #play-rate-menu
 {
     padding-left:0;
-    border-left:0;
-    border-top:0;
+    border-left-width:0;
+    border-top-width:0;
     width:40;
     height:16;
 }

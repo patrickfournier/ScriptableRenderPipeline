@@ -13,10 +13,6 @@
     border-left-width:1;
     border-right-width:1;
     border-bottom-width:1;
-    border-top: 1;
-    border-left: 1;
-    border-right: 1;
-    border-bottom: 1;
 }
 
 .selectable:selected  > #selection-border
