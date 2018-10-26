@@ -24,7 +24,7 @@ OperandInfo *
 {
     height:16;
 }
-OperandInfo TextField
+OperandInfo .unity-text-field
 {
     flex:1 0 auto;
 }
@@ -35,7 +35,7 @@ OperandInfo .PopupButton
     width:55;
 }
 
-VFXUnifiedOperatorEdit OperandInfo Label
+VFXUnifiedOperatorEdit OperandInfo .unity-label
 {
     flex:1 0 auto;
 }
@@ -63,7 +63,7 @@ VFXUnifiedOperatorEdit OperandInfo .PopupButton
 {
     justify-content:center;
 }
-.VFXUniformOperatorEdit#edit-container Label
+.VFXUniformOperatorEdit#edit-container .unity-label
 {
     margin-left:8;
     margin-right:8;
@@ -118,7 +118,7 @@ width:-1;
     border-bottom-left-radius:2;
     border-bottom-right-radius:2;
 }
-.VFXNodeUI.node.superCollapsed #node-border > #title > Label#title-label {
+.VFXNodeUI.node.superCollapsed #node-border > #title > .unity-label#title-label {
     margin-bottom:3;
     margin-top:3;
     margin-left:20;

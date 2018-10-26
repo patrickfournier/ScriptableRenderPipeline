@@ -29,7 +29,7 @@ VFXColorField #indeterminate
     color:#000;
 }
 
-CurveField
+.unity-curve-field
 {
     height:16;
     background-color:rgb(86, 86, 86);
@@ -44,7 +44,7 @@ CurveField
 {
     flex-direction:row;
 }
-.sliderField Slider
+.sliderField .unity-slider
 {
     flex:1 0 auto;
 }
@@ -83,12 +83,12 @@ VFXStringFieldPushButton
     height:16;
 }
 
-VFXStringFieldPushButton Button
+VFXStringFieldPushButton .unity-button
 {
     height:16;
 }
 
-Button.MiniDropDown
+.unity-button.MiniDropDown
 {
     -unity-slice-right: 12;
 }

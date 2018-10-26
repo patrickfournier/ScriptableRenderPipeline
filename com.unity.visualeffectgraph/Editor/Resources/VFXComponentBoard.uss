@@ -30,7 +30,7 @@ VFXComponentBoard.graphElement
 }
 
 
-VFXComponentBoard ScrollView
+VFXComponentBoard .unity-scroll-view
 {
     flex-direction:column;
     align-items:stretch;
@@ -74,7 +74,7 @@ VFXComponentBoard, #component-container
 }
 
 
-VFXComponentBoardEventUI Button, #on-play-button, #on-stop-button,#attach, #select,#component-path
+VFXComponentBoardEventUI .unity-button, #on-play-button, #on-stop-button,#attach, #select,#component-path
 {
     height:20;
 }
@@ -110,30 +110,30 @@ VFXComponentBoardEventUI Button, #on-play-button, #on-stop-button,#attach, #sele
     flex-direction:row;
 }
 
-#toolbar Button
+#toolbar .unity-button
 {
     flex:1 0 auto;
     height:24;
     align-items:center;
 }
 
-#toolbar Button#stop #icon
+#toolbar .unity-button#stop #icon
 {
     --unity-image:resource("VFX/Stop");
 }
-#toolbar Button#play #icon
+#toolbar .unity-button#play #icon
 {
     --unity-image:resource("VFX/Pause");
 }
-#toolbar Button#play.paused #icon
+#toolbar .unity-button#play.paused #icon
 {
     --unity-image:resource("VFX/Play");
 }
-#toolbar Button#step #icon
+#toolbar .unity-button#step #icon
 {
     --unity-image:resource("VFX/Step");
 }
-#toolbar Button#restart #icon
+#toolbar .unity-button#restart #icon
 {
     --unity-image:resource("VFX/Restart");
 }

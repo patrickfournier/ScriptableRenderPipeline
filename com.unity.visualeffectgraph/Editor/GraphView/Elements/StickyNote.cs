@@ -394,7 +394,7 @@ namespace UnityEditor.VFX.UI
             if (m_TitleField != null)
             {
                 m_TitleField.visible = false;
-                m_TitleField.RegisterCallback<BlurEvent>(OnTitleBlur);
+                m_TitleField.Q("unity-text-input").RegisterCallback<BlurEvent>(OnTitleBlur);
                 m_TitleField.RegisterCallback<ChangeEvent<string>>(OnTitleChange);
             }
 
@@ -407,7 +407,7 @@ namespace UnityEditor.VFX.UI
                 {
                     m_ContentsField.visible = false;
                     m_ContentsField.multiline = true;
-                    m_ContentsField.RegisterCallback<BlurEvent>(OnContentsBlur);
+                    m_ContentsField.Q("unity-text-input").RegisterCallback<BlurEvent>(OnContentsBlur);
                 }
                 m_Contents.RegisterCallback<MouseDownEvent>(OnContentsMouseDown);
             }
@@ -574,7 +574,7 @@ namespace UnityEditor.VFX.UI
                 UpdateTitleFieldRect();
                 m_Title.RegisterCallback<GeometryChangedEvent>(OnTitleRelayout);
 
-                m_TitleField.Focus();
+                m_TitleField.Q("unity-text-input").Focus();
                 m_TitleField.SelectAll();
 
                 e.StopPropagation();
@@ -598,7 +598,7 @@ namespace UnityEditor.VFX.UI
             {
                 m_ContentsField.value = m_Contents.text;
                 m_ContentsField.visible = true;
-                m_ContentsField.Focus();
+                m_ContentsField.Q("unity-text-input").Focus();
                 e.StopPropagation();
                 e.PreventDefault();
             }

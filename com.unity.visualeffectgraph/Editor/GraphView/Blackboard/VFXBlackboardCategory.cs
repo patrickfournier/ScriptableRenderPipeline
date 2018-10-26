@@ -139,8 +139,8 @@ namespace UnityEditor.VFX.UI
             m_NameField = new TextField() {name = "name-field"};
             m_Header.Add(m_NameField);
             m_Header.RegisterCallback<MouseDownEvent>(OnMouseDownEvent);
-            m_NameField.RegisterCallback<FocusOutEvent>(e => { OnEditTextSucceded(); });
-            m_NameField.RegisterCallback<KeyDownEvent>(OnTextFieldKeyPressed);
+            m_NameField.Q("unity-text-input").RegisterCallback<FocusOutEvent>(e => { OnEditTextSucceded(); });
+            m_NameField.Q("unity-text-input").RegisterCallback<KeyDownEvent>(OnTextFieldKeyPressed);
             m_Header.pickingMode = PickingMode.Position;
 
             m_NameField.visible = false;
@@ -331,7 +331,7 @@ namespace UnityEditor.VFX.UI
         {
             m_NameField.value = title;
             m_NameField.visible = true;
-            m_NameField.Focus();
+            m_NameField.Q("unity-text-input").Focus();
             m_NameField.SelectAll();
         }
 

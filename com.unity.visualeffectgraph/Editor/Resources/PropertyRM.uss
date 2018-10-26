@@ -19,7 +19,7 @@
     margin-left:4;
     margin-right:8;
 }
-.propertyrm Button
+.propertyrm .unity-button
 {
     margin-top:1;
     margin-bottom:1;
@@ -54,7 +54,7 @@
     background-image:resource("vfx/spaceworld");
 }
 
-.propertyrm > FloatField
+.propertyrm > .unity-float-field
 {
     margin-bottom:3;
 }
@@ -72,7 +72,6 @@
 {
     color:#888;
     flex:0 0 auto;
-    padding-left:2;
     -unity-text-align:middle-center;
     margin-left:0;
     padding-left:4;
@@ -85,7 +84,7 @@
     padding-left:0;
 }
 
-.propertyrm .fieldContainer, .propertyrm FloatField
+.propertyrm .fieldContainer, .propertyrm .unity-float-field
 {
     -align-items: center;
     flex-direction:row;
@@ -98,7 +97,7 @@
     height:16;
 }
 
-BoolPropertyRM > Toggle
+BoolPropertyRM > .unity-toggle
 {
     padding-top:0;
     padding-bottom:0;
@@ -145,28 +144,18 @@ ColorPropertyRM > .maincontainer > .fieldContainer
     flex:0 0 auto;
 }
 
-ColorPropertyRM FloatField
+ColorPropertyRM .unity-float-field
 {
     flex:1 0 auto;
 }
 
-FloatPropertyRM FloatField
-{
-    align-self:flex-end;
-    flex:1 0 auto;
-}
-
-IntPropertyRM IntegerField
+FloatPropertyRM .unity-float-field
 {
     align-self:flex-end;
-    margin-left:0;
-    margin-right:0;
-    margin-top:0;
-    margin-bottom:0;
     flex:1 0 auto;
 }
 
-UintPropertyRM LongField
+IntPropertyRM .unity-integer-field
 {
     align-self:flex-end;
     margin-left:0;
@@ -176,7 +165,17 @@ UintPropertyRM LongField
     flex:1 0 auto;
 }
 
-CurvePropertyRM CurveField
+UintPropertyRM .unity-long-field
+{
+    align-self:flex-end;
+    margin-left:0;
+    margin-right:0;
+    margin-top:0;
+    margin-bottom:0;
+    flex:1 0 auto;
+}
+
+CurvePropertyRM .unity-curve-field
 {
     flex:1 0 auto;
 }
@@ -187,7 +186,7 @@ CurvePropertyRM
     min-width:100;
 }
 
-StringPropertyRM VFXStringField TextField
+StringPropertyRM VFXStringField .unity-text-field
 {
     margin-left:0;
     margin-right:0;
@@ -240,7 +239,7 @@ VFXCurveField > CurveFieldContent{
     overflow:hidden;
 }
 
-VFXCurveField > #border
+VFXCurveField > #unity-border
 {
     position:absolute;
     left:0;
@@ -255,7 +254,7 @@ VFXCurveField > #border
     background-image: resource("Builtin Skins/Processed/Images/colorpickerbox.png");
 }
 
-VFXCurveField:focus > #border
+VFXCurveField:focus > #unity-border
 {
     background-image: resource("Builtin Skins/Processed/Images/colorpickerboxfocused.png");
 }

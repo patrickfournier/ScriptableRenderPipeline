@@ -139,8 +139,8 @@ namespace UnityEditor.VFX.UI
                 m_StringField = new VFXStringField(m_Label);
                 if (isDelayed)
                 {
-                    m_StringField.textfield.RegisterCallback<BlurEvent>(OnFocusLost);
-                    m_StringField.textfield.RegisterCallback<KeyDownEvent>(OnKeyDown);
+                    m_StringField.textfield.Q("unity-text-input").RegisterCallback<BlurEvent>(OnFocusLost);
+                    m_StringField.textfield.Q("unity-text-input").RegisterCallback<KeyDownEvent>(OnKeyDown);
                 }
                 return m_StringField;
             }
